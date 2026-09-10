@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robotics Club, MMMUT — Official Team</title>
+  <meta name="description" content="Meet the innovators, engineers, and visionaries driving robotics and automation at Madan Mohan Malaviya University of Technology, Gorakhpur." />
+
+  <link rel="icon" type="image/png" href="./rc-logo.png" />
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              accent: '#C97C3E',
+              accentHover: '#E08C4A',
+              dark: '#0A0C10',
+              card: '#14171D',
+              border: '#23272F',
+              muted: '#9BA1AC',
+              text: '#ECEEF1'
+            }
+          },
+          fontFamily: {
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            spaceranger: ['"Space Ranger"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'Space Ranger';
+      src: local('Space Ranger'),
+           url('fonts/spaceranger.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Space Ranger';
+      src: local('Space Ranger Bold'),
+           url('fonts/spacerangerbold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      background-color: #0A0C10;
+      color: #ECEEF1;
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .font-heading {
+      font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    }
+    .font-space-ranger {
+      font-family: 'Space Ranger', sans-serif;
+    }
+
+    /* Ambient background grid */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Radial glow overlays */
+    .glow-orange {
+      background: radial-gradient(circle 500px at 50% -100px, rgba(201, 124, 62, 0.15), transparent 70%);
+    }
+
+    /* Marquee animation */
+    @keyframes team-marquee-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .team-marquee-track {
+      animation: team-marquee-scroll var(--marquee-duration, 32s) linear infinite;
+      will-change: transform;
+    }
+    .team-marquee-paused {
+      animation-play-state: paused !important;
+    }
+    .team-marquee:hover .team-marquee-track,
+    .team-marquee:focus-within .team-marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* Card transitions */
+    .team-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      border-color: #C97C3E;
+      box-shadow: 0 10px 30px -10px rgba(201, 124, 62, 0.25);
+    }
+    .team-card-image {
+      filter: grayscale(1);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    .team-card:hover .team-card-image {
+      filter: grayscale(0);
+      transform: scale(1.04);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0C10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #23272F;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C97C3E;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-grid relative selection:bg-[#C97C3E]/30 selection:text-white">
+
+  <!-- Ambient Glow -->
+  <div class="fixed inset-0 pointer-events-none glow-orange z-0"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-[#0A0C10]/80 border-b border-[#23272F]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center border border-[#23272F] bg-[#14171D] p-1 shadow-md shadow-[#C97C3E]/10">
+          <img src="./rc-logo.png" alt="Robotics Club MMMUT Logo" class="w-full h-full object-contain" />
+        </div>
+        <div>
+          <span class="font-space-ranger text-base tracking-wider text-white block leading-none">Robotics Club</span>
+          <span class="text-[10px] text-[#C97C3E] font-medium tracking-wider uppercase">MMMUT Gorakhpur</span>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-[#9BA1AC]">
+        <a href="#faculty" class="hover:text-white transition">Faculty</a>
+        <a href="#final-year" class="hover:text-white transition">Final Year</a>
+        <a href="#third-year" class="hover:text-white transition">Third Year</a>
+        <a href="#second-year" class="hover:text-white transition">Second Year</a>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span>
+          Active Team
+        </span>
+        <a href="team-preview.html" class="text-xs text-[#9BA1AC] hover:text-[#C97C3E] transition border border-[#23272F] px-2.5 py-1 rounded-md hidden sm:inline-block">
+          Raw Preview
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="relative z-10 max-w-5xl mx-auto px-4 pt-16 pb-12 text-center md:pt-20 md:pb-16">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#14171D] border border-[#23272F] text-xs font-medium text-[#C97C3E] mb-6 shadow-inner">
+      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+      </svg>
+      Madan Mohan Malaviya University of Technology
+    </div>
+    <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+      Innovators Behind <br/>
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#C97C3E] via-[#F59E0B] to-[#FFD085]">
+        The Robotics Club
+      </span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#9BA1AC] leading-relaxed">
+      Meet the engineers, designers, researchers, and creators shaping autonomous systems, circuits, software, and competitive robotics.
+    </p>
+
+    <!-- Stats Ribbon -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-10">
+      <div class="bg-[#14171D]/90 border border-[#23272F] rounded-xl p-3.5 text-center">
+        <div class="font-heading text-2xl font-bold text-white">61</div>
+        <div class="text-xs text-[#9BA1AC] mt-0.5">Total Members</div>
+      </div>
+      <div class="bg-[#14171D]/90 border border-[#23272F] rounded-xl p-3.5 text-center">
+        <div class="font-heading text-2xl font-bold text-[#C97C3E]">2</div>
+        <div class="text-xs text-[#9BA1AC] mt-0.5">Faculty Advisors</div>
+      </div>
+      <div class="bg-[#14171D]/90 border border-[#23272F] rounded-xl p-3.5 text-center">
+        <div class="font-heading text-2xl font-bold text-amber-400">18</div>
+        <div class="text-xs text-[#9BA1AC] mt-0.5">Final Year Leads</div>
+      </div>
+      <div class="bg-[#14171D]/90 border border-[#23272F] rounded-xl p-3.5 text-center">
+        <div class="font-heading text-2xl font-bold text-emerald-400">41</div>
+        <div class="text-xs text-[#9BA1AC] mt-0.5">Leads & Executives</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Controls Toolbar -->
+  <section class="relative z-10 max-w-6xl mx-auto px-4 mb-10">
+    <div class="bg-[#14171D]/80 backdrop-blur-md border border-[#23272F] rounded-2xl p-4 sm:p-5 shadow-xl">
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <!-- Search Input -->
+        <div class="relative w-full md:w-80">
+          <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9BA1AC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search member, role, dept..."
+            class="w-full pl-10 pr-4 py-2 bg-[#0A0C10] border border-[#23272F] rounded-xl text-sm text-white placeholder-[#9BA1AC]/60 focus:outline-none focus:border-[#C97C3E] transition"
+          />
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none" id="filterContainer">
+          <button class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-[#C97C3E] text-white transition" data-dept="ALL">All</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="CE">CE</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="ECE">ECE</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="ECE-IoT">ECE-IoT</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="CSE">CSE</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="EE">EE</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="IT">IT</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="ME">ME</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] hover:text-white border border-[#23272F] transition" data-dept="BBA">BBA</button>
+        </div>
+
+        <!-- Animation Toggle -->
+        <div class="flex items-center gap-2 self-end md:self-auto">
+          <button id="toggleMotionBtn" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0A0C10] text-[#ECEEF1] border border-[#23272F] hover:border-[#C97C3E] transition flex items-center gap-1.5">
+            <span id="motionIcon">⏸</span>
+            <span id="motionText">Pause Scroll</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Status Banner -->
+      <div id="filterBanner" class="hidden mt-4 pt-3 border-t border-[#23272F] text-xs text-[#9BA1AC] flex items-center justify-between">
+        <span id="filterStatsText">Showing 0 matching members</span>
+        <button id="clearFilterBtn" class="text-[#C97C3E] hover:underline">Clear filter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Results Grid (Hidden by default, shown when filtering/searching) -->
+  <section id="searchResultsSection" class="hidden relative z-10 max-w-6xl mx-auto px-4 md:px-8 mb-16">
+    <div id="searchResultsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5 py-6">
+      <!-- Injected via JS -->
+    </div>
+    <div id="noResults" class="hidden py-16 text-center">
+      <div class="w-12 h-12 mx-auto rounded-full bg-[#14171D] border border-[#23272F] flex items-center justify-center text-[#9BA1AC] mb-3">
+        🔍
+      </div>
+      <p class="text-base text-[#ECEEF1] font-medium">No team members found</p>
+      <p class="text-xs text-[#9BA1AC] mt-1">Try adjusting your search query or department filter.</p>
+    </div>
+  </section>
+
+  <!-- Default Continuous Marquee Sections -->
+  <div id="marqueeSections" class="relative z-10 space-y-8 md:space-y-12">
+    <!-- Faculty Advisors Section -->
+    <section id="faculty" class="py-4">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 mb-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-[#C97C3E]"></span>
+          <h2 class="font-heading text-xl font-bold tracking-tight text-[#ECEEF1]">Faculty Advisors</h2>
+        </div>
+        <span class="text-xs text-[#9BA1AC] bg-[#14171D] px-2.5 py-1 rounded-md border border-[#23272F]">2 Members</span>
+      </div>
+      <div class="max-w-6xl mx-auto px-4 md:px-8">
+        <div id="facultyTrack" class="flex flex-wrap gap-4 sm:gap-6">
+          <!-- Exactly one card per faculty advisor -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Year Section -->
+    <section id="final-year" class="py-4">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 mb-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <h2 class="font-heading text-xl font-bold tracking-tight text-[#ECEEF1]">Final Year Members</h2>
+        </div>
+        <span class="text-xs text-[#9BA1AC] bg-[#14171D] px-2.5 py-1 rounded-md border border-[#23272F]">18 Members</span>
+      </div>
+      <div class="team-marquee relative w-full overflow-hidden" style="mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);">
+        <div id="finalYearTrack" class="team-marquee-track flex w-max gap-4 px-4 md:px-8" style="--marquee-duration: 38s; animation-direction: reverse;">
+          <!-- Cards injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Third Year Section -->
+    <section id="third-year" class="py-4">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 mb-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+          <h2 class="font-heading text-xl font-bold tracking-tight text-[#ECEEF1]">Third Year Leads</h2>
+        </div>
+        <span class="text-xs text-[#9BA1AC] bg-[#14171D] px-2.5 py-1 rounded-md border border-[#23272F]">20 Members</span>
+      </div>
+      <div class="team-marquee relative w-full overflow-hidden" style="mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);">
+        <div id="thirdYearTrack" class="team-marquee-track flex w-max gap-4 px-4 md:px-8" style="--marquee-duration: 42s;">
+          <!-- Cards injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Second Year Section -->
+    <section id="second-year" class="py-4">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 mb-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <h2 class="font-heading text-xl font-bold tracking-tight text-[#ECEEF1]">Second Year Executives</h2>
+        </div>
+        <span class="text-xs text-[#9BA1AC] bg-[#14171D] px-2.5 py-1 rounded-md border border-[#23272F]">21 Members</span>
+      </div>
+      <div class="team-marquee relative w-full overflow-hidden" style="mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);">
+        <div id="secondYearTrack" class="team-marquee-track flex w-max gap-4 px-4 md:px-8" style="--marquee-duration: 45s; animation-direction: reverse;">
+          <!-- Cards injected via JS -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Member Detail Modal -->
+  <div id="memberModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity">
+    <div class="bg-[#14171D] border border-[#23272F] rounded-2xl max-w-md w-full p-6 relative shadow-2xl overflow-hidden">
+      <!-- Ambient light inside modal -->
+      <div class="absolute -top-20 -right-20 w-40 h-40 bg-[#C97C3E]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <button id="closeModalBtn" class="absolute top-4 right-4 text-[#9BA1AC] hover:text-white p-2 rounded-lg bg-[#0A0C10] border border-[#23272F] transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="flex flex-col items-center text-center">
+        <div id="modalAvatar" class="w-28 h-28 rounded-2xl overflow-hidden border-2 border-[#C97C3E] mb-4 shadow-lg shadow-[#C97C3E]/10 bg-[#1B1F27]">
+          <!-- Avatar injected -->
+        </div>
+
+        <h3 id="modalName" class="font-heading text-xl font-bold text-[#ECEEF1]"></h3>
+        <p id="modalRole" class="text-sm font-medium text-[#C97C3E] mt-1"></p>
+        
+        <div class="flex items-center gap-2 mt-3">
+          <span id="modalDept" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#23272F] text-[#ECEEF1]"></span>
+          <span id="modalCategory" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#0A0C10] text-[#9BA1AC] border border-[#23272F]"></span>
+        </div>
+
+        <p class="text-xs text-[#9BA1AC] mt-4 leading-relaxed bg-[#0A0C10] p-3 rounded-xl border border-[#23272F] w-full text-left">
+          Robotics Club, Madan Mohan Malaviya University of Technology, Gorakhpur. Contributing to engineering innovation, club events, and robotics advancements.
+        </p>
+
+        <div class="flex items-center gap-3 mt-5 w-full">
+          <button onclick="document.getElementById('memberModal').classList.add('hidden')" class="w-full py-2.5 rounded-xl bg-[#C97C3E] hover:bg-[#E08C4A] text-white text-xs font-semibold tracking-wide transition shadow-lg shadow-[#C97C3E]/20">
+            Close Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-[#23272F] mt-20 py-10 bg-[#0A0C10]/90">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#9BA1AC]">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#C97C3E]"></span>
+        <p>© Robotics Club, MMMUT Gorakhpur. All rights reserved.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#faculty" class="hover:text-white transition">Faculty</a>
+        <a href="#final-year" class="hover:text-white transition">Final Year</a>
+        <a href="#third-year" class="hover:text-white transition">Third Year</a>
+        <a href="#second-year" class="hover:text-white transition">Second Year</a>
+        <a href="team-preview.html" class="hover:text-[#C97C3E] transition">Raw Preview</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Team Data
+    function slugify(name) {
+      return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    }
+    function withImages(list, category) {
+      return list.map(m => ({
+        ...m,
+        category: category,
+        image: `team/${slugify(m.name)}.jpg`
+      }));
+    }
+
+    const facultyAdvisors = withImages([
+      { name: "Dr. Prince Kumar Singh", role: "Faculty Advisor", department: "" },
+      { name: "Dr. Vijay Shanker Chaudhary", role: "Faculty Advisor", department: "" }
+    ], "Faculty Advisor");
+
+    const finalYearMembers = withImages([
+      { name: "Devesh Kumar Gaurav", role: "President", department: "ECE" },
+      { name: "Prateek Singh", role: "Vice-President", department: "CE" },
+      { name: "Shivanya Dixit", role: "Vice-President", department: "EE" },
+      { name: "Ayush Sachan", role: "Vice-President", department: "ECE" },
+      { name: "Deepak", role: "Secretary", department: "CSE" },
+      { name: "Nityanand Pathak", role: "Treasurer", department: "ECE" },
+      { name: "Garima Yadav", role: "Treasurer", department: "EE" },
+      { name: "Divyansh Mishra", role: "Treasurer", department: "ECE" },
+      { name: "Vedant Batham", role: "Circuitry-3D Designing Head", department: "IT" },
+      { name: "Badal Sharma", role: "Editorial and Content Research Head", department: "ECE" },
+      { name: "Pranjal Shahi", role: "Media and Creation Head", department: "ECE" },
+      { name: "Suryansh Pal Suryavanshi", role: "Video Editing Head", department: "EE" },
+      { name: "Nishant Pandey", role: "Public Relations Head", department: "ME" },
+      { name: "Nitin Gupta", role: "Graphic Design Head", department: "ECE-IoT" },
+      { name: "Yashasvi Sharma", role: "Web and App Development Head", department: "CSE" },
+      { name: "Ayush Nag", role: "Circuitry-3D Designing Head", department: "ECE-IoT" },
+      { name: "Mansi Chaturvedi", role: "Editorial and Content Research Head", department: "EE" },
+      { name: "Divas Kushwaha", role: "Media and Creation Head", department: "ECE" }
+    ], "Final Year");
+
+    const thirdYearMembers = withImages([
+      { name: "Aditya Bind", role: "Video Editing Lead", department: "ECE" },
+      { name: "Aditya Pratap Singh", role: "Video Editing Lead", department: "ECE" },
+      { name: "Anisha Singh", role: "Media and Sponsorship Lead", department: "ECE" },
+      { name: "Anushka Singh", role: "Web and App Development Lead", department: "CSE" },
+      { name: "Apurv Mishra", role: "Circuitry-3D Design Lead", department: "ECE-IoT" },
+      { name: "Aradhya Singh", role: "Editorial and Content Research Lead", department: "CSE" },
+      { name: "Ayushi Srivastava", role: "Media and Sponsorship Lead", department: "BBA" },
+      { name: "Dhruv Mishra", role: "Circuitry-3D Design Lead", department: "ECE-IoT" },
+      { name: "Harshika Gautam", role: "Media and Sponsorship Lead", department: "ECE" },
+      { name: "Ishan Dixit", role: "Web and App Development Lead", department: "ECE-IoT" },
+      { name: "Janhavi Tiwari", role: "Graphics Design Lead", department: "ECE-IoT" },
+      { name: "Kshitiz Gaur", role: "Media and Sponsorship Lead", department: "ECE" },
+      { name: "Mohammad Samir", role: "Circuitry-3D Design Lead", department: "ECE-IoT" },
+      { name: "Prathmesh Dev", role: "Public Relations Lead", department: "ME" },
+      { name: "Rishika Khatri", role: "Graphics Design Lead", department: "EE" },
+      { name: "Rohini Rajput", role: "Public Relations Lead", department: "ECE" },
+      { name: "Saloni Yadav", role: "Editorial and Content Research Lead", department: "ECE" },
+      { name: "Srishti Tripathi", role: "Editorial and Content Research Lead", department: "EE" },
+      { name: "Srishti Yadav", role: "Graphics Design Lead", department: "ECE-IoT" },
+      { name: "Swaraj Kumar", role: "Public Relations Lead", department: "ECE-IoT" }
+    ], "Third Year");
+
+    const secondYearMembers = withImages([
+      { name: "Aadi Siddharth", role: "Executive Member", department: "ECE" },
+      { name: "Abhishek Agrahari", role: "Executive Member", department: "ECE" },
+      { name: "Aditya Abhishek Tripathi", role: "Executive Member", department: "ECE" },
+      { name: "Aditya Mishra", role: "Executive Member", department: "ECE" },
+      { name: "Akanksha Patel", role: "Executive Member", department: "ECE-IoT" },
+      { name: "Aniket Singh", role: "Executive Member", department: "EE" },
+      { name: "Animesh Yadav", role: "Executive Member", department: "ECE-IoT" },
+      { name: "Ansh Pandey", role: "Executive Member", department: "ECE-IoT" },
+      { name: "Anshika Kumari", role: "Executive Member", department: "ECE" },
+      { name: "Arjun Rastogi", role: "Executive Member", department: "ECE" },
+      { name: "Atul Singh", role: "Executive Member", department: "EE" },
+      { name: "Ayush Mishra", role: "Executive Member", department: "ME" },
+      { name: "Ishita Gupta", role: "Executive Member", department: "ECE-IoT" },
+      { name: "Krishna Porwal", role: "Executive Member", department: "EE" },
+      { name: "Mridul Srivastava", role: "Executive Member", department: "IT" },
+      { name: "Nityam Sahu", role: "Executive Member", department: "ECE" },
+      { name: "Prabhat Kaushal", role: "Executive Member", department: "ECE" },
+      { name: "Samriddhi Srivastava", role: "Executive Member", department: "EE" },
+      { name: "Shashikant", role: "Executive Member", department: "ECE-IoT" },
+      { name: "Shivakant Pandey", role: "Executive Member", department: "ECE-IoT" },
+      { name: "Tanu Pandey", role: "Executive Member", department: "CE" }
+    ], "Second Year");
+
+    const allMembers = [
+      ...facultyAdvisors,
+      ...finalYearMembers,
+      ...thirdYearMembers,
+      ...secondYearMembers
+    ];
+
+    // Card HTML Generator
+    function createCardElement(member, isAriaHidden = false) {
+      const fallbackUrl = `https://ui-avatars.com/api/?background=1B1F27&color=C97C3E&bold=true&size=256&name=${encodeURIComponent(member.name)}`;
+      
+      const article = document.createElement('article');
+      article.className = 'team-card group relative w-44 sm:w-48 md:w-52 lg:w-56 shrink-0 select-none overflow-hidden rounded-xl border border-[#23272F] bg-[#14171D] cursor-pointer';
+      if (isAriaHidden) {
+        article.setAttribute('aria-hidden', 'true');
+        article.setAttribute('tabindex', '-1');
+      } else {
+        article.setAttribute('tabindex', '0');
+      }
+
+      article.innerHTML = `
+        <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#1B1F27]">
+          <img
+            src="${member.image}"
+            alt="Portrait of ${member.name}"
+            loading="lazy"
+            class="team-card-image h-full w-full object-cover object-top"
+            onerror="this.onerror=null; this.src='${fallbackUrl}';"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#14171D] via-transparent to-transparent opacity-60"></div>
+          ${member.department ? `<span class="absolute top-2.5 right-2.5 text-[10px] font-semibold bg-[#0A0C10]/80 backdrop-blur-md text-[#C97C3E] border border-[#23272F] px-2 py-0.5 rounded-md shadow">${member.department}</span>` : ''}
+        </div>
+        <div class="min-h-[4.75rem] px-3.5 py-3 flex flex-col justify-between">
+          <div>
+            <p class="text-sm font-semibold leading-snug text-[#ECEEF1] line-clamp-1 group-hover:text-white transition" title="${member.name}">
+              ${member.name}
+            </p>
+            <p class="mt-1 text-xs text-[#C97C3E] font-medium line-clamp-1" title="${member.role}">
+              ${member.role}
+            </p>
+          </div>
+          <div class="mt-2 flex items-center justify-between text-[11px] text-[#9BA1AC]">
+            <span>${member.category || 'Member'}</span>
+            <span class="text-[#C97C3E] opacity-0 group-hover:opacity-100 transition">View &rarr;</span>
+          </div>
+        </div>
+      `;
+
+      article.addEventListener('click', () => openModal(member));
+      article.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(member);
+        }
+      });
+
+      return article;
+    }
+
+    // Modal Handler
+    const modal = document.getElementById('memberModal');
+    const modalAvatar = document.getElementById('modalAvatar');
+    const modalName = document.getElementById('modalName');
+    const modalRole = document.getElementById('modalRole');
+    const modalDept = document.getElementById('modalDept');
+    const modalCategory = document.getElementById('modalCategory');
+
+    function openModal(member) {
+      const fallbackUrl = `https://ui-avatars.com/api/?background=1B1F27&color=C97C3E&bold=true&size=256&name=${encodeURIComponent(member.name)}`;
+      modalAvatar.innerHTML = `
+        <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='${fallbackUrl}';" />
+      `;
+      modalName.textContent = member.name;
+      modalRole.textContent = member.role;
+      modalDept.textContent = member.department ? `Department: ${member.department}` : 'MMMUT';
+      modalCategory.textContent = member.category || 'Robotics Club';
+      modal.classList.remove('hidden');
+    }
+
+    document.getElementById('closeModalBtn').addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+
+    // Populate Faculty Advisors (single card each, no duplication)
+    function populateFaculty(members) {
+      const track = document.getElementById('facultyTrack');
+      track.innerHTML = '';
+      members.forEach(m => track.appendChild(createCardElement(m, false)));
+    }
+
+    // Populate Marquees (duplicated for seamless loop)
+    function populateTrack(trackId, members) {
+      const track = document.getElementById(trackId);
+      track.innerHTML = '';
+      // first set
+      members.forEach(m => track.appendChild(createCardElement(m, false)));
+      // duplicate set for seamless infinite scroll
+      members.forEach(m => track.appendChild(createCardElement(m, true)));
+    }
+
+    populateFaculty(facultyAdvisors);
+    populateTrack('finalYearTrack', finalYearMembers);
+    populateTrack('thirdYearTrack', thirdYearMembers);
+    populateTrack('secondYearTrack', secondYearMembers);
+
+    // Filter & Search Logic
+    let currentDept = 'ALL';
+    let searchQuery = '';
+
+    const searchInput = document.getElementById('searchInput');
+    const filterContainer = document.getElementById('filterContainer');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const filterBanner = document.getElementById('filterBanner');
+    const filterStatsText = document.getElementById('filterStatsText');
+    const clearFilterBtn = document.getElementById('clearFilterBtn');
+    const marqueeSections = document.getElementById('marqueeSections');
+    const searchResultsSection = document.getElementById('searchResultsSection');
+    const searchResultsGrid = document.getElementById('searchResultsGrid');
+    const noResults = document.getElementById('noResults');
+
+    function applyFilters() {
+      const q = searchQuery.toLowerCase().trim();
+      const isFiltering = q.length > 0 || currentDept !== 'ALL';
+
+      if (!isFiltering) {
+        marqueeSections.classList.remove('hidden');
+        searchResultsSection.classList.add('hidden');
+        filterBanner.classList.add('hidden');
+        return;
+      }
+
+      marqueeSections.classList.add('hidden');
+      searchResultsSection.classList.remove('hidden');
+      filterBanner.classList.remove('hidden');
+
+      const matches = allMembers.filter(m => {
+        const memberDept = (m.department || '').trim().toUpperCase();
+        
+        // Exact department matching so CE only matches CE, not ECE or ECE-IoT
+        const matchesDept = currentDept === 'ALL' || memberDept === currentDept.toUpperCase();
+
+        // Search query matching
+        let matchesQuery = true;
+        if (q) {
+          const nameMatch = m.name.toLowerCase().includes(q);
+          const roleMatch = m.role.toLowerCase().includes(q);
+          const deptTokens = (m.department || '').toLowerCase().split(/[^a-z0-9]+/);
+          const deptMatch = (m.department && m.department.toLowerCase() === q) || deptTokens.includes(q);
+          matchesQuery = nameMatch || roleMatch || deptMatch;
+        }
+
+        return matchesQuery && matchesDept;
+      });
+
+      filterStatsText.textContent = `Found ${matches.length} member${matches.length === 1 ? '' : 's'}`;
+      searchResultsGrid.innerHTML = '';
+
+      if (matches.length === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        matches.forEach(m => {
+          const card = createCardElement(m, false);
+          card.classList.remove('w-44', 'sm:w-48', 'md:w-52', 'lg:w-56', 'shrink-0');
+          card.classList.add('w-full');
+          searchResultsGrid.appendChild(card);
+        });
+      }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFilters();
+    });
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-[#C97C3E]', 'text-white');
+          b.classList.add('bg-[#0A0C10]', 'text-[#9BA1AC]');
+        });
+        btn.classList.add('bg-[#C97C3E]', 'text-white');
+        btn.classList.remove('bg-[#0A0C10]', 'text-[#9BA1AC]');
+
+        currentDept = btn.getAttribute('data-dept');
+        applyFilters();
+      });
+    });
+
+    clearFilterBtn.addEventListener('click', () => {
+      searchQuery = '';
+      searchInput.value = '';
+      currentDept = 'ALL';
+      filterButtons.forEach((b, idx) => {
+        if (idx === 0) {
+          b.classList.add('bg-[#C97C3E]', 'text-white');
+          b.classList.remove('bg-[#0A0C10]', 'text-[#9BA1AC]');
+        } else {
+          b.classList.remove('bg-[#C97C3E]', 'text-white');
+          b.classList.add('bg-[#0A0C10]', 'text-[#9BA1AC]');
+        }
+      });
+      applyFilters();
+    });
+
+    // Pause / Resume Scroll Button
+    const toggleMotionBtn = document.getElementById('toggleMotionBtn');
+    const motionIcon = document.getElementById('motionIcon');
+    const motionText = document.getElementById('motionText');
+    let isPaused = false;
+
+    toggleMotionBtn.addEventListener('click', () => {
+      isPaused = !isPaused;
+      const tracks = document.querySelectorAll('.team-marquee-track');
+      tracks.forEach(t => {
+        if (isPaused) {
+          t.classList.add('team-marquee-paused');
+        } else {
+          t.classList.remove('team-marquee-paused');
+        }
+      });
+      motionIcon.textContent = isPaused ? '▶' : '⏸';
+      motionText.textContent = isPaused ? 'Resume Scroll' : 'Pause Scroll';
+    });
+  </script>
+</body>
+</html>

@@ -15,7 +15,7 @@ export default function SideNav() {
             </a>
           </li>
           <li style={{ '--i': 2 } as React.CSSProperties}>
-            <a href="#team" className={styles.navItem} onClick={() => setIsOpen(false)}>
+            <a href="/team/index.html" className={styles.navItem} onClick={() => setIsOpen(false)}>
               TEAM
             </a>
           </li>

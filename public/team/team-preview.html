@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Robotics Club, MMMUT — Team</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { background:#0A0C10; margin:0; font-family:'Inter', ui-sans-serif, system-ui, sans-serif; }
+  .font-heading { font-family:'Space Grotesk', ui-sans-serif, system-ui, sans-serif; }
+
+  @keyframes team-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .team-marquee-track {
+    animation: team-marquee-scroll var(--marquee-duration, 30s) linear infinite;
+    will-change: transform;
+  }
+  .team-marquee:hover .team-marquee-track,
+  .team-marquee:focus-within .team-marquee-track {
+    animation-play-state: paused;
+  }
+  .team-card {
+    transition: transform .3s ease, border-color .3s ease;
+  }
+  .team-card:hover, .team-card:focus-within {
+    transform: translateY(-4px);
+    border-color: #C97C3E;
+    outline: none;
+  }
+  .team-card-image {
+    filter: grayscale(1);
+    transition: filter .4s ease, transform .4s ease;
+  }
+  .team-card:hover .team-card-image,
+  .team-card:focus-within .team-card-image {
+    filter: grayscale(0);
+    transform: scale(1.03);
+  }
+  .line-clamp-1 { display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+  .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  @media (prefers-reduced-motion: reduce) {
+    .team-marquee-track { animation:none; }
+    .team-card, .team-card-image { transition:none; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+
+const { useMemo } = React;
+
+/* ---------------- data ---------------- */
+
+function slugify(name) {
+  return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+function withImages(list) {
+  return list.map((m) => ({ ...m, image: `team/${slugify(m.name)}.jpg` }));
+}
+
+const facultyAdvisors = withImages([
+  { name: "Dr. Prince Kumar Singh", role: "Faculty Advisor", department: "" },
+  { name: "Dr. Vijay Shanker Chaudhary", role: "Faculty Advisor", department: "" },
+]);
+
+const finalYearMembers = withImages([
+  { name: "Devesh Kumar Gaurav", role: "President", department: "ECE" },
+  { name: "Prateek Singh", role: "Vice-President", department: "CE" },
+  { name: "Shivanya Dixit", role: "Vice-President", department: "EE" },
+  { name: "Ayush Sachan", role: "Vice-President", department: "ECE" },
+  { name: "Deepak", role: "Secretary", department: "CSE" },
+  { name: "Nityanand Pathak", role: "Treasurer", department: "ECE" },
+  { name: "Garima Yadav", role: "Treasurer", department: "EE" },
+  { name: "Divyansh Mishra", role: "Treasurer", department: "ECE" },
+  { name: "Vedant Batham", role: "Circuitry-3D Designing Head", department: "IT" },
+  { name: "Badal Sharma", role: "Editorial and Content Research Head", department: "ECE" },
+  { name: "Pranjal Shahi", role: "Media and Creation Head", department: "ECE" },
+  { name: "Suryansh Pal Suryavanshi", role: "Video Editing Head", department: "EE" },
+  { name: "Nishant Pandey", role: "Public Relations Head", department: "ME" },
+  { name: "Nitin Gupta", role: "Graphic Design Head", department: "ECE-IoT" },
+  { name: "Yashasvi Sharma", role: "Web and App Development Head", department: "CSE" },
+  { name: "Ayush Nag", role: "Circuitry-3D Designing Head", department: "ECE-IoT" },
+  { name: "Mansi Chaturvedi", role: "Editorial and Content Research Head", department: "EE" },
+  { name: "Divas Kushwaha", role: "Media and Creation Head", department: "ECE" },
+]);
+
+const thirdYearMembers = withImages([
+  { name: "Aditya Bind", role: "Video Editing Lead", department: "ECE" },
+  { name: "Aditya Pratap Singh", role: "Video Editing Lead", department: "ECE" },
+  { name: "Anisha Singh", role: "Media and Sponsorship Lead", department: "ECE" },
+  { name: "Anushka Singh", role: "Web and App Development Lead", department: "CSE" },
+  { name: "Apurv Mishra", role: "Circuitry-3D Design Lead", department: "ECE-IoT" },
+  { name: "Aradhya Singh", role: "Editorial and Content Research Lead", department: "CSE" },
+  { name: "Ayushi Srivastava", role: "Media and Sponsorship Lead", department: "BBA" },
+  { name: "Dhruv Mishra", role: "Circuitry-3D Design Lead", department: "ECE-IoT" },
+  { name: "Harshika Gautam", role: "Media and Sponsorship Lead", department: "ECE" },
+  { name: "Ishan Dixit", role: "Web and App Development Lead", department: "ECE-IoT" },
+  { name: "Janhavi Tiwari", role: "Graphics Design Lead", department: "ECE-IoT" },
+  { name: "Kshitiz Gaur", role: "Media and Sponsorship Lead", department: "ECE" },
+  { name: "Mohammad Samir", role: "Circuitry-3D Design Lead", department: "ECE-IoT" },
+  { name: "Prathmesh Dev", role: "Public Relations Lead", department: "ME" },
+  { name: "Rishika Khatri", role: "Graphics Design Lead", department: "EE" },
+  { name: "Rohini Rajput", role: "Public Relations Lead", department: "ECE" },
+  { name: "Saloni Yadav", role: "Editorial and Content Research Lead", department: "ECE" },
+  { name: "Srishti Tripathi", role: "Editorial and Content Research Lead", department: "EE" },
+  { name: "Srishti Yadav", role: "Graphics Design Lead", department: "ECE-IoT" },
+  { name: "Swaraj Kumar", role: "Public Relations Lead", department: "ECE-IoT" },
+]);
+
+const secondYearMembers = withImages([
+  { name: "Aadi Siddharth", role: "Executive Member", department: "ECE" },
+  { name: "Abhishek Agrahari", role: "Executive Member", department: "ECE" },
+  { name: "Aditya Abhishek Tripathi", role: "Executive Member", department: "ECE" },
+  { name: "Aditya Mishra", role: "Executive Member", department: "ECE" },
+  { name: "Akanksha Patel", role: "Executive Member", department: "ECE-IoT" },
+  { name: "Aniket Singh", role: "Executive Member", department: "EE" },
+  { name: "Animesh Yadav", role: "Executive Member", department: "ECE-IoT" },
+  { name: "Ansh Pandey", role: "Executive Member", department: "ECE-IoT" },
+  { name: "Anshika Kumari", role: "Executive Member", department: "ECE" },
+  { name: "Arjun Rastogi", role: "Executive Member", department: "ECE" },
+  { name: "Atul Singh", role: "Executive Member", department: "EE" },
+  { name: "Ayush Mishra", role: "Executive Member", department: "ME" },
+  { name: "Ishita Gupta", role: "Executive Member", department: "ECE-IoT" },
+  { name: "Krishna Porwal", role: "Executive Member", department: "EE" },
+  { name: "Mridul Srivastava", role: "Executive Member", department: "IT" },
+  { name: "Nityam Sahu", role: "Executive Member", department: "ECE" },
+  { name: "Prabhat Kaushal", role: "Executive Member", department: "ECE" },
+  { name: "Samriddhi Srivastava", role: "Executive Member", department: "EE" },
+  { name: "Shashikant", role: "Executive Member", department: "ECE-IoT" },
+  { name: "Shivakant Pandey", role: "Executive Member", department: "ECE-IoT" },
+  { name: "Tanu Pandey", role: "Executive Member", department: "CE" },
+]);
+
+/* ---------------- components ---------------- */
+
+function TeamCard({ member, ariaHidden }) {
+  const { name, role, department, image } = member;
+  const fallback = `https://ui-avatars.com/api/?background=1B1F27&color=C97C3E&bold=true&size=256&name=${encodeURIComponent(name)}`;
+  return (
+    <article
+      className="team-card group relative w-40 shrink-0 select-none overflow-hidden rounded-xl border border-[#23272F] bg-[#14171D] sm:w-48 md:w-52 lg:w-56"
+      tabIndex={ariaHidden ? -1 : 0}
+      aria-hidden={ariaHidden || undefined}
+    >
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#1B1F27]">
+        <img
+          src={image}
+          alt={`Portrait of ${name}`}
+          loading="lazy"
+          className="team-card-image h-full w-full object-cover object-top"
+          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = fallback; }}
+        />
+      </div>
+      <div className="min-h-[4.75rem] px-3 py-3">
+        <p className="line-clamp-2 text-sm font-medium leading-snug text-[#ECEEF1]" title={name}>{name}</p>
+        <p className="mt-1 line-clamp-1 text-xs text-[#C97C3E]" title={role}>{role}</p>
+        {department ? <p className="line-clamp-1 text-[11px] text-[#9BA1AC]" title={department}>{department}</p> : null}
+      </div>
+    </article>
+  );
+}
+
+function TeamMarquee({ members, direction = "left", speed }) {
+  const duration = speed ?? Math.max(members.length * 4, 18);
+  const track = useMemo(() => [...members, ...members], [members]);
+  return (
+    <div className="team-marquee relative w-full overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)" }}>
+      <div
+        className="team-marquee-track flex w-max gap-4 px-4 md:px-8"
+        style={{ "--marquee-duration": `${duration}s`, animationDirection: direction === "right" ? "reverse" : "normal" }}
+      >
+        {track.map((m, i) => <TeamCard key={`${m.name}-${i}`} member={m} ariaHidden={i >= members.length} />)}
+      </div>
+    </div>
+  );
+}
+
+function TeamSection({ title, members, direction }) {
+  if (!members?.length) return null;
+  if (members.length <= 2) {
+    return (
+      <section className="py-8 md:py-12">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 className="font-heading mb-6 text-lg font-semibold tracking-tight text-[#ECEEF1] md:text-xl">{title}</h2>
+          <div className="flex flex-wrap gap-4 md:gap-6">
+            {members.map((m) => (
+              <TeamCard key={m.name} member={m} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+  return (
+    <section className="py-8 md:py-12">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <h2 className="font-heading mb-6 text-lg font-semibold tracking-tight text-[#ECEEF1] md:text-xl">{title}</h2>
+      </div>
+      <TeamMarquee members={members} direction={direction} />
+    </section>
+  );
+}
+
+function TeamHeader() {
+  return (
+    <header className="mx-auto max-w-6xl px-4 pb-6 pt-16 text-center md:px-8 md:pt-24">
+      <p className="text-xs font-medium text-[#C97C3E]">Robotics Club, MMMUT</p>
+      <h1 className="font-heading mt-3 text-3xl font-semibold tracking-tight text-[#ECEEF1] md:text-5xl">Meet the team</h1>
+      <p className="mx-auto mt-4 max-w-md text-sm text-[#9BA1AC] md:text-base">The people behind Robotics Club MMMUT.</p>
+    </header>
+  );
+}
+
+function TeamPage() {
+  return (
+    <main className="min-h-screen bg-[#0A0C10]">
+      <TeamHeader />
+      <TeamSection title="Faculty Advisors" members={facultyAdvisors} direction="left" />
+      <TeamSection title="Final Year Members" members={finalYearMembers} direction="right" />
+      <TeamSection title="Third Year Members" members={thirdYearMembers} direction="left" />
+      <TeamSection title="Second Year Members" members={secondYearMembers} direction="right" />
+      <div className="h-10 md:h-16" />
+    </main>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TeamPage />);
+</script>
+</body>
+</html>

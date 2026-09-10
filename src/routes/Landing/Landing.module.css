@@ -1,0 +1,159 @@
+.page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Fixed dark vignette so text stays legible if a bright object drifts behind it. */
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 15, 18, 0.72) 0%,
+    rgba(14, 15, 18, 0.32) 42%,
+    rgba(14, 15, 18, 0) 68%
+  );
+}
+
+.poster {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 68% 38%, #2a2d34 0%, var(--bg) 70%),
+    var(--bg);
+}
+
+/* --- scroll-driven mode --- */
+.scroll {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll > div > .section {
+  scroll-snap-align: start;
+}
+
+.section {
+  display: block;
+}
+
+.card {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+  padding: 80px clamp(20px, 5vw, 56px);
+  pointer-events: none;
+}
+
+.card h1,
+.card h2 {
+  margin: 0 0 0.4em;
+  color: var(--text);
+  font-size: clamp(2rem, 5.2vw, 3.4rem);
+  line-height: 1.05;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 42ch;
+}
+
+/* subtle vertical progress tick, right edge */
+.progress {
+  position: fixed;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 120px;
+  background: var(--hair);
+  z-index: 10;
+}
+
+.progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+/* --- reduced-motion / static mode --- */
+.scrollStatic {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+.scrollStatic .section {
+  min-height: auto;
+  display: block;
+}
+
+.scrollStatic .card {
+  position: static;
+  height: auto;
+  padding: 64px clamp(20px, 5vw, 56px);
+}
+
+.scrollStatic .card + .card {
+  border-top: 1px solid var(--hair);
+}
+
+/* --- call to action / final section --- */
+.cta {
+  position: relative;
+  z-index: 2;
+  background: var(--bg);
+  border-top: 1px solid var(--hair);
+}
+
+.ctaInner {
+  max-width: 720px;
+  padding: clamp(80px, 16vh, 160px) clamp(20px, 5vw, 56px);
+}
+
+.ctaInner h2 {
+  margin: 0 0 0.5em;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  color: var(--text);
+}
+
+.ctaInner p {
+  margin: 0 0 2em;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.ctaButton {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 22px;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  filter: brightness(1.08);
+}

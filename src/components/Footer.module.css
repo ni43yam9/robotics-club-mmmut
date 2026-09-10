@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 28px clamp(20px, 5vw, 56px) 40px;
+  border-top: 1px solid var(--hair);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--text);
+}

@@ -27,7 +27,6 @@ export const InteractiveTravelCard = React.forwardRef<
     // --- 3D Tilt Animation Logic ---
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-    const isHovered = React.useState(false);
 
     const springConfig = { damping: 20, stiffness: 150 };
     const springX = useSpring(mouseX, springConfig);

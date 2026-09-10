@@ -39,7 +39,6 @@ export default function LandingPage() {
             small={small}
             onReady={() => setReady(true)}
           />
-          {!ready && <LoadingScreen />}
         </>
       )}
 

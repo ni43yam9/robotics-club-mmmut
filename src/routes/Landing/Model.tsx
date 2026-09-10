@@ -9,8 +9,8 @@ Changes from the original:
 */
 
 import * as THREE from "three";
-import { useEffect, useRef, useState } from "react";
-import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei";
+import { useEffect, useRef, useState, useMemo } from "react";
+import { useGLTF, useAnimations, PerspectiveCamera, Clone } from "@react-three/drei";
 import { useFrame, type ThreeElements } from "@react-three/fiber";
 import { type GLTF } from "three-stdlib";
 
@@ -45,13 +45,29 @@ type ModelProps = ThreeElements["group"] & {
   shadowMapSize?: number;
 };
 
+// Helper to find the baked center of the original geometries
+const getCenter = (geometry: THREE.BufferGeometry) => {
+  geometry.computeBoundingBox();
+  const center = new THREE.Vector3();
+  geometry.boundingBox?.getCenter(center);
+  return center;
+};
+
 export default function Model({ scroll, shadowMapSize = 1024, ...props }: ModelProps) {
   const group = useRef<THREE.Group>(null!);
-  const { nodes, materials, animations } = useGLTF(
-    modelUrl,
-  ) as unknown as GLTFResult;
+  const { nodes, materials, animations } = useGLTF(modelUrl) as unknown as GLTFResult;
   const { actions } = useAnimations(animations, group);
   const [hovered, set] = useState<string | null>();
+
+  // Custom models loaded from public/
+  const dog = useGLTF("/robo_dog_low_poly.glb");
+  const arm = useGLTF("/robotic_arm_45_elbow_horizontal_gripper.glb");
+  const gear = useGLTF("/mechanical_gear.glb");
+
+  const headphonesCenter = useMemo(() => getCenter(nodes.Headphones.geometry), [nodes]);
+  const roundcubeCenter = useMemo(() => getCenter(nodes.Roundcube001.geometry), [nodes]);
+  const tableCenter = useMemo(() => getCenter(nodes.Table.geometry), [nodes]);
+
   const extras = {
     receiveShadow: true,
     castShadow: true,
@@ -60,14 +76,24 @@ export default function Model({ scroll, shadowMapSize = 1024, ...props }: ModelP
 
   useEffect(() => void (actions["CameraAction.005"]!.play().paused = true), [actions]);
 
+  // Recursively change colors for hovered objects (even complex nested groups)
   useEffect(() => {
-    if (hovered)
-      (
-        group.current.getObjectByName(hovered) as THREE.Mesh<
-          THREE.BufferGeometry,
-          THREE.MeshStandardMaterial
-        >
-      ).material.color.set("white");
+    if (hovered) {
+      const obj = group.current.getObjectByName(hovered);
+      if (obj) {
+        obj.traverse((child) => {
+          const mesh = child as THREE.Mesh;
+          if (mesh.isMesh && mesh.material) {
+            // handle arrays of materials or single materials
+            const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+            mats.forEach((m) => {
+              const mat = m as THREE.MeshStandardMaterial;
+              if (mat.color) mat.color.set("white");
+            });
+          }
+        });
+      }
+    }
     document.body.style.cursor = hovered ? "pointer" : "auto";
     return () => void (document.body.style.cursor = "auto");
   }, [hovered]);
@@ -78,16 +104,27 @@ export default function Model({ scroll, shadowMapSize = 1024, ...props }: ModelP
       actions["CameraAction.005"]!.getClip().duration * scroll.current,
       0.05,
     );
-    (
-      group.current.children[0].children as THREE.Mesh<
-        THREE.BufferGeometry,
-        THREE.MeshStandardMaterial
-      >[]
-    ).forEach((child, index) => {
-      child.material.color.lerp(
-        color.set(hovered === child.name ? ACCENT : "#202020"),
-        hovered ? 0.1 : 0.05,
-      );
+    
+    // Animate every direct child of the InteractiveGroup
+    group.current.children[0].children.forEach((child, index) => {
+      // Lerp material colors back to normal or ACCENT
+      child.traverse((c) => {
+        const mesh = c as THREE.Mesh;
+        if (mesh.isMesh && mesh.material) {
+          const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+          mats.forEach((m) => {
+            const mat = m as THREE.MeshStandardMaterial;
+            if (mat.color) {
+              mat.color.lerp(
+                color.set(hovered === child.name ? ACCENT : "#202020"),
+                hovered ? 0.1 : 0.05,
+              );
+            }
+          });
+        }
+      });
+
+      // Bobbing floating animation
       const et = state.clock.elapsedTime;
       child.position.y = Math.sin((et + index * 2000) / 2) * 1;
       child.rotation.x = Math.sin((et + index * 2000) / 3) / 10;
@@ -99,53 +136,67 @@ export default function Model({ scroll, shadowMapSize = 1024, ...props }: ModelP
   return (
     <group ref={group} {...props} dispose={null}>
       <group
-        onPointerOver={(e) => (e.stopPropagation(), set(e.object.name))}
-        onPointerOut={(e) => (e.stopPropagation(), set(null))}
+        onPointerOver={(e) => {
+          e.stopPropagation();
+          // Find the direct child of this InteractiveGroup
+          let target = e.object as THREE.Object3D;
+          while (target && target.parent && target.parent.name !== "InteractiveGroup") {
+            target = target.parent;
+          }
+          if (target) set(target.name);
+        }}
+        onPointerOut={(e) => {
+          e.stopPropagation();
+          set(null);
+        }}
+        name="InteractiveGroup"
         position={[0.06, 4.04, 0.35]}
         scale={[0.25, 0.25, 0.25]}
       >
-        <mesh
-          name="Headphones"
-          geometry={nodes.Headphones.geometry}
-          material={materials.M_Headphone}
-          {...extras}
-        />
+        <group name="Headphones">
+          {/* Replace Headphones with Robo Dog, shifted to the baked coordinates of the headphones */}
+          <Clone object={dog.scene} position={headphonesCenter} scale={4} castShadow receiveShadow />
+        </group>
+        
         <mesh
           name="Notebook"
           geometry={nodes.Notebook.geometry}
           material={materials.M_Notebook}
           {...extras}
         />
+        
         <mesh
           name="Rocket003"
           geometry={nodes.Rocket003.geometry}
           material={materials.M_Rocket}
           {...extras}
         />
-        <mesh
-          name="Roundcube001"
-          geometry={nodes.Roundcube001.geometry}
-          material={materials.M_Roundcube}
-          {...extras}
-        />
-        <mesh
-          name="Table"
-          geometry={nodes.Table.geometry}
-          material={materials.M_Table}
-          {...extras}
-        />
+        
+        <group name="Roundcube001">
+          {/* Replace Windmill/Turbine with Robotic Arm */}
+          <Clone object={arm.scene} position={roundcubeCenter} scale={4} castShadow receiveShadow />
+        </group>
+        
+        <group name="Table">
+          {/* Replace Table with Mechanical Gear */}
+          <Clone object={gear.scene} position={tableCenter} scale={8} castShadow receiveShadow />
+        </group>
+        
         <mesh
           name="VR_Headset"
           geometry={nodes.VR_Headset.geometry}
           material={materials.M_Headset}
           {...extras}
         />
+        
         <mesh
           name="Zeppelin"
           geometry={nodes.Zeppelin.geometry}
           material={materials.M_Zeppelin}
+          {...extras}
         />
       </group>
+      
       <group
         name="Camera"
         position={[-1.78, 2.04, 23.58]}
@@ -177,3 +228,6 @@ export default function Model({ scroll, shadowMapSize = 1024, ...props }: ModelP
 }
 
 useGLTF.preload(modelUrl);
+useGLTF.preload("/robo_dog_low_poly.glb");
+useGLTF.preload("/robotic_arm_45_elbow_horizontal_gripper.glb");
+useGLTF.preload("/mechanical_gear.glb");

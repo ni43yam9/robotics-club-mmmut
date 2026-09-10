@@ -5,15 +5,18 @@ import {
   type UIEvent,
 } from "react";
 import CallToAction from "./CallToAction";
+import PageCards from "../../components/PageCards";
 import styles from "./Landing.module.css";
 
 // TODO(copy): all seven titles + bodies below are draft copy — replace.
 // Order is fixed: it must match the baked camera stops in model.glb.
-const STOPS: { object: string; title: string; body: string }[] = [
+const STOPS: { object: string; title: string; body: string; eyebrow?: string; tagline?: string }[] = [
   {
     object: "VR headset",
-    title: "See it before you build it",
-    body: "We prototype in simulation first, so your first mistake costs nothing but time.",
+    eyebrow: "ROBOTICS CLUB • MMMUT GORAKHPUR",
+    title: "See it before you\nbuild it.",
+    body: "We design, build and experiment with machines that move, think and adapt.",
+    tagline: "WHERE IDEAS BECOME MACHINES.",
   },
   {
     object: "headphones",
@@ -96,18 +99,43 @@ export default function StoryOverlay({ scroll, isStatic = false }: Props) {
             style={isStatic ? undefined : { height: HEIGHTS[i] }}
           >
             <div className={styles.card}>
+              {stop.eyebrow && <div className={styles.eyebrow}>{stop.eyebrow}</div>}
               {i === 0 ? (
-                <h1>{stop.title}</h1>
+                <h1 style={{ whiteSpace: "pre-wrap" }}>{stop.title}</h1>
               ) : (
                 <h2>{stop.title}</h2>
               )}
               <p>{stop.body}</p>
+              {stop.tagline && <div className={styles.tagline}>{stop.tagline}</div>}
             </div>
           </section>
         ))}
       </div>
 
-      <CallToAction />
+      <div className="relative z-10 w-full overflow-hidden bg-[#0e0f12] border-t border-[#2a2d34]">
+        
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center md:bg-[center_20%] opacity-100 pointer-events-none"
+          style={{ backgroundImage: "url('/facility-bg.png')" }}
+        />
+        
+        {/* Dark Cinematic Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0e0f12] via-[#0e0f12]/10 to-[#0e0f12] pointer-events-none" />
+        
+        {/* Cinematic fine grain / noise overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.035] pointer-events-none mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        />
+
+        <div className="relative z-10">
+          <PageCards />
+          <CallToAction />
+        </div>
+      </div>
     </div>
   );
 }

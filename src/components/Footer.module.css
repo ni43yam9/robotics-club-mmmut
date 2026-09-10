@@ -10,6 +10,14 @@
   font-size: 13px;
 }
 
+.brand {
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .links {
   display: inline-flex;
   flex-wrap: wrap;
@@ -19,6 +27,7 @@
 .links a {
   color: var(--muted);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .links a:hover {

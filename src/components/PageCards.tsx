@@ -49,8 +49,8 @@ export default function PageCards() {
             subtitle="Competitions & workshops"
             imageUrl="/events.jpg"
             actionText="Discover Events →"
-            href="/events"
-            onActionClick={() => navigate("/events")}
+            href="/events/index.html"
+            onActionClick={() => window.location.href = "/events/index.html"}
           />
         </div>
       </div>

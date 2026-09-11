@@ -10,10 +10,8 @@ import styles from "./Hud.module.css";
 export default function Hud() {
   const points = useStore((state) => state.points);
   const health = useStore((state) => state.health);
-  const sound = useStore((state) => state.sound);
   const running = useStore((state) => state.running);
   const paused = useStore((state) => state.paused);
-  const toggle = useStore((state) => state.actions.toggleSound);
   const startTime = useStore((state) => state.mutation.startTime);
 
   const seconds = useRef<HTMLParagraphElement>(null!);
@@ -33,27 +31,8 @@ export default function Hud() {
 
   return (
     <>
-      <button
-        type="button"
-        className={styles.upperLeft}
-        onClick={() => toggle()}
-        aria-pressed={sound}
-      >
-        sound
-        <br />
-        {sound ? "on" : "off"}
-      </button>
-
       <nav className={styles.upperRight}>
         <Link to="/">&larr; home</Link>
-        <br />
-        <a
-          href="https://github.com/pmndrs/examples"
-          target="_blank"
-          rel="noreferrer"
-        >
-          based on pmndrs examples
-        </a>
       </nav>
 
       <div className={styles.lowerLeft}>

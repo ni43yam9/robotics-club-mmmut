@@ -14,17 +14,23 @@
 }
 
 .upperLeft {
+  text-align: left;
   top: 40px;
   left: 50px;
-  font-size: 2em;
+  font-size: 1.3em;
   transform: skew(5deg, 5deg);
   pointer-events: all;
-  cursor: pointer;
-  background: none;
-  border: 0;
-  padding: 0;
-  text-align: left;
+}
+
+.upperLeft a,
+.upperRight a {
   color: var(--accent);
+  text-decoration: none;
+}
+
+.upperLeft a:hover,
+.upperRight a:hover {
+  color: var(--text);
 }
 
 .upperRight {
@@ -34,15 +40,6 @@
   font-size: 1.3em;
   transform: skew(-5deg, -5deg);
   pointer-events: all;
-}
-
-.upperRight a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.upperRight a:hover {
-  color: var(--text);
 }
 
 .lowerLeft {
@@ -81,7 +78,7 @@
 
 @media only screen and (max-width: 900px) {
   .upperLeft {
-    font-size: 1.5em;
+    font-size: 1.1em;
   }
   .upperRight {
     font-size: 1.1em;

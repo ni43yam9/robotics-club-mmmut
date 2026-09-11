@@ -31,7 +31,7 @@ export default function Hud() {
 
   return (
     <>
-      <nav className={styles.upperRight}>
+      <nav className={styles.upperLeft}>
         <Link to="/">&larr; home</Link>
       </nav>
 

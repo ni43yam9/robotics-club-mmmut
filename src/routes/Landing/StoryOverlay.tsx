@@ -12,7 +12,20 @@ import styles from "./Landing.module.css";
 
 // TODO(copy): all seven titles + bodies below are draft copy — replace.
 // Order is fixed: it must match the baked camera stops in model.glb.
-const STOPS: { object: string; title: string; body: string; eyebrow?: string; tagline?: string }[] = [
+type StoryStop = {
+  object: string;
+  title: string;
+  body: string;
+  eyebrow?: string;
+  tagline?: string;
+  align?: "left" | "right";
+  microText1?: string;
+  microText2?: string;
+  showSignalFlow?: boolean;
+  showCodeStream?: boolean;
+};
+
+const STOPS: StoryStop[] = [
   {
     object: "VR headset",
     eyebrow: "ROBOTICS CLUB • MMMUT GORAKHPUR",
@@ -123,11 +136,11 @@ export default function StoryOverlay({ scroll, isStatic = false }: Props) {
                 title={stop.title}
                 body={stop.body}
                 tagline={stop.tagline}
-                microText1={(stop as any).microText1}
-                microText2={(stop as any).microText2}
-                showSignalFlow={(stop as any).showSignalFlow}
-                showCodeStream={(stop as any).showCodeStream}
-                align={(stop as any).align}
+                microText1={stop.microText1}
+                microText2={stop.microText2}
+                showSignalFlow={stop.showSignalFlow}
+                showCodeStream={stop.showCodeStream}
+                align={stop.align}
               />
             )}
           </section>

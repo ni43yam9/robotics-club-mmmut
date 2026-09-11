@@ -8,7 +8,7 @@ export default function Header() {
     <header className={styles.header}>
       <Link to="/" className={styles.brand} aria-label="Robotics Club home">
         <img src={logo} alt="Robotics Club Logo" className={styles.logo} width={44} height={44} />
-        <span>Robotics Club</span>
+        <span>Robotics Club MMMUT Gorakhpur</span>
       </Link>
       <Link
         to="/play"

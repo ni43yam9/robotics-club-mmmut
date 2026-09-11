@@ -26,9 +26,9 @@ export default function PageCards() {
             title="THE TEAM"
             subtitle="Meet the builders"
             imageUrl="/team.jpg"
-            actionText="Meet the Team →"
-            href="/team/index.html"
-            onActionClick={() => window.location.href = "/team/index.html"}
+            actionText="Meet the Team &rarr;"
+            href="/team"
+            onActionClick={() => navigate("/team")}
           />
         </div>
 
@@ -37,7 +37,7 @@ export default function PageCards() {
             title="GALLERY"
             subtitle="Moments & Projects"
             imageUrl="/gallery.jpg"
-            actionText="View Gallery →"
+            actionText="View Gallery &rarr;"
             href="/gallery"
             onActionClick={() => navigate("/gallery")}
           />
@@ -48,9 +48,9 @@ export default function PageCards() {
             title="EVENTS"
             subtitle="Competitions & workshops"
             imageUrl="/events.jpg"
-            actionText="Discover Events →"
-            href="/events/index.html"
-            onActionClick={() => window.location.href = "/events/index.html"}
+            actionText="Discover Events &rarr;"
+            href="/events"
+            onActionClick={() => navigate("/events")}
           />
         </div>
       </div>

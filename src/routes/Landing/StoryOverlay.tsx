@@ -125,9 +125,32 @@ export default function StoryOverlay({ scroll, isStatic = false }: Props) {
         {STOPS.map((stop, i) => (
           <section
             key={stop.object}
-            className={styles.section}
+            className={`${styles.section} relative`}
             style={isStatic ? undefined : { height: HEIGHTS[i] }}
           >
+            {i > 0 && (
+              <div 
+                className="absolute top-0 left-0 w-full h-[1px] flex items-center justify-center pointer-events-none z-30 opacity-0 transition-all duration-700 ease-out translate-y-4"
+                style={{ 
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(241,239,234,0.08) 25%, rgba(241,239,234,0.18) 50%, rgba(241,239,234,0.08) 75%, transparent 100%)',
+                }}
+                ref={(el) => {
+                  if (el && !isStatic) {
+                    const observer = new IntersectionObserver(([entry]) => {
+                      if (entry.isIntersecting) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0) scaleX(1)';
+                        observer.disconnect();
+                      }
+                    }, { threshold: 0.1 });
+                    observer.observe(el);
+                    el.style.transform = 'translateY(0) scaleX(0.8)'; // Initial state
+                  }
+                }}
+              >
+                <div className="w-[30px] md:w-[60px] h-[1px] bg-[#F4C50D] shadow-[0_0_12px_rgba(244,197,13,0.12)]"></div>
+              </div>
+            )}
             {i === 0 ? (
               <HeroTypography />
             ) : (

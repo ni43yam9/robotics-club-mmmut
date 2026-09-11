@@ -4,7 +4,7 @@ import { usePrefersReducedMotion } from "../../components/usePrefersReducedMotio
 import { useDocumentMeta } from "../../components/useDocumentMeta";
 import Scene from "./Scene";
 import StoryOverlay from "./StoryOverlay";
-import ProceduralBackground from "../../components/ProceduralBackground";
+import CinematicBackground from "../../components/CinematicBackground";
 import styles from "./Landing.module.css";
 
 export default function LandingPage() {
@@ -22,7 +22,7 @@ export default function LandingPage() {
   return (
     <div ref={wrapperRef} className={styles.page}>
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-        <ProceduralBackground scroll={scroll} className="absolute inset-0" />
+        <CinematicBackground scroll={scroll} />
       </div>
       
       <Header />

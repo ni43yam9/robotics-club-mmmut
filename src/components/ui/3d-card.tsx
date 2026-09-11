@@ -56,6 +56,7 @@ export const InteractiveTravelCard = React.forwardRef<
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        onClick={onActionClick}
         whileHover="hover"
         variants={{
           hover: { y: -8 }
@@ -66,7 +67,7 @@ export const InteractiveTravelCard = React.forwardRef<
           transformStyle: "preserve-3d",
         }}
         className={cn(
-          "relative h-[440px] w-[350px] md:h-[460px] md:w-[380px] rounded-xl bg-transparent shadow-2xl border border-white/5 transition-colors duration-300",
+          "relative h-[440px] w-[350px] md:h-[460px] md:w-[380px] rounded-xl bg-transparent shadow-2xl border border-white/5 transition-colors duration-300 cursor-pointer",
           className
         )}
       >
@@ -120,7 +121,7 @@ export const InteractiveTravelCard = React.forwardRef<
               </div>
               <motion.a
                 href={href}
-                onClick={(e) => { e.preventDefault(); onActionClick(); }}
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onActionClick(); }}
                 variants={{
                   hover: { scale: 1.1, rotate: "15deg", backgroundColor: "rgba(255,255,255,0.2)" }
                 }}
@@ -135,7 +136,7 @@ export const InteractiveTravelCard = React.forwardRef<
 
             {/* Footer Button */}
             <motion.button
-              onClick={onActionClick}
+              onClick={(e) => { e.stopPropagation(); onActionClick(); }}
               whileHover={{ x: 5 }}
               whileTap={{ scale: 0.98 }}
               style={{ transform: "translateZ(40px)" }}

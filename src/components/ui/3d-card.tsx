@@ -67,7 +67,7 @@ export const InteractiveTravelCard = React.forwardRef<
           transformStyle: "preserve-3d",
         }}
         className={cn(
-          "relative h-[440px] w-[350px] md:h-[460px] md:w-[380px] rounded-xl bg-transparent shadow-2xl border border-white/5 transition-colors duration-300 cursor-pointer",
+          "relative h-[380px] w-[300px] md:h-[400px] md:w-[320px] rounded-xl bg-transparent shadow-2xl border border-white/5 transition-colors duration-300 cursor-pointer",
           className
         )}
       >

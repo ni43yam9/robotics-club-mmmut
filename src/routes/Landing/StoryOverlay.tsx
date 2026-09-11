@@ -6,6 +6,8 @@ import {
 } from "react";
 import CallToAction from "./CallToAction";
 import PageCards from "../../components/PageCards";
+import HeroTypography from "./HeroTypography";
+import SectionCard from "./SectionCard";
 import styles from "./Landing.module.css";
 
 // TODO(copy): all seven titles + bodies below are draft copy — replace.
@@ -20,33 +22,48 @@ const STOPS: { object: string; title: string; body: string; eyebrow?: string; ta
   },
   {
     object: "headphones",
-    title: "Weekly build nights",
-    body: "Every week the lab fills up, music on, and something that didn't work last week starts working.",
+    eyebrow: "INSIDE THE LAB",
+    title: "WHERE\u00A0MACHINES\nCOME\u00A0TO\nLIFE.",
+    body: "From circuits and code to motors and mechanisms, we turn ambitious ideas into working machines.",
+    align: "right",
   },
   {
     object: "rocket",
-    title: "Your first project launches in week three",
-    body: "No prerequisites. You leave the bootcamp with a robot you drove yourself.",
+    eyebrow: "01 / FIRST BUILD",
+    title: "BUILD YOUR FIRST\nROBOT.",
+    body: "Start with the basics, get your hands dirty, and turn your first idea into a machine that actually moves.",
+    microText1: "RC-01\nPROTOTYPE",
   },
   {
     object: "turbine",
-    title: "Motors, sensors, and the loop between them",
-    body: "Learn how a machine reads the world and pushes back on it.",
+    eyebrow: "02 / CONTROL SYSTEMS",
+    title: "FROM SIGNAL\nTO MOTION.",
+    body: "Every movement starts with information. We connect sensors, code, and motors to turn signals into action.",
+    microText1: "SENSOR\n↓\nPROCESS\n↓\nMOTION",
+    showSignalFlow: true,
+    align: "right",
   },
   {
     object: "table",
-    title: "A bench with your name on it",
-    body: "Members get lab access, a parts bin, and tools that would cost a semester's stipend.",
+    eyebrow: "03 / THE LAB",
+    title: "YOUR\u00A0SPACE.\nYOUR\u00A0TOOLS.\nYOUR\u00A0BUILD.",
+    body: "Tools, components, workspace, and a team that makes building a lot easier.",
   },
   {
     object: "laptop",
-    title: "Write the behavior",
-    body: "Firmware, control loops, and a little computer vision — the code that makes hardware intentional.",
+    eyebrow: "04 / SOFTWARE & CONTROL",
+    title: "CODE\u00A0THE\nBEHAVIOR.",
+    body: "Firmware, control loops, and computer vision—the code that turns hardware into intelligent machines.",
+    microText1: "INPUT\n↓\nPROCESS\n↓\nOUTPUT",
+    showCodeStream: true,
+    align: "right",
   },
   {
     object: "zeppelin",
-    title: "Go past one semester",
-    body: "Competition teams, research builds, and projects that outlast the people who started them.",
+    eyebrow: "05 / KEEP BUILDING",
+    title: "THE\u00A0BUILD\nDOESN'T\u00A0END.",
+    body: "From your first prototype to competition-ready machines, keep building with people who want to go further.",
+    microText1: "BUILD → COMPETE → RESEARCH → REPEAT",
   },
 ];
 
@@ -98,16 +115,21 @@ export default function StoryOverlay({ scroll, isStatic = false }: Props) {
             className={styles.section}
             style={isStatic ? undefined : { height: HEIGHTS[i] }}
           >
-            <div className={styles.card}>
-              {stop.eyebrow && <div className={styles.eyebrow}>{stop.eyebrow}</div>}
-              {i === 0 ? (
-                <h1 style={{ whiteSpace: "pre-wrap" }}>{stop.title}</h1>
-              ) : (
-                <h2>{stop.title}</h2>
-              )}
-              <p>{stop.body}</p>
-              {stop.tagline && <div className={styles.tagline}>{stop.tagline}</div>}
-            </div>
+            {i === 0 ? (
+              <HeroTypography />
+            ) : (
+              <SectionCard 
+                eyebrow={stop.eyebrow}
+                title={stop.title}
+                body={stop.body}
+                tagline={stop.tagline}
+                microText1={(stop as any).microText1}
+                microText2={(stop as any).microText2}
+                showSignalFlow={(stop as any).showSignalFlow}
+                showCodeStream={(stop as any).showCodeStream}
+                align={(stop as any).align}
+              />
+            )}
           </section>
         ))}
       </div>

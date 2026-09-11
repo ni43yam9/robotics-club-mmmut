@@ -84,7 +84,7 @@ export default function CallToAction() {
               onPointerEnter={prefetchPlay}
               onFocus={prefetchPlay}
             >
-              Play the experience &rarr;
+              Initiate Cyberpunk &rarr;
             </Link>
           </div>
 

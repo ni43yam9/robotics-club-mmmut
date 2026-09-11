@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Header from "../../components/Header";
-import LoadingScreen from "../../components/LoadingScreen";
 import { usePrefersReducedMotion } from "../../components/usePrefersReducedMotion";
 import { useDocumentMeta } from "../../components/useDocumentMeta";
 import Scene from "./Scene";
@@ -17,7 +16,6 @@ export default function LandingPage() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const scroll = useRef(0);
   const reducedMotion = usePrefersReducedMotion();
-  const [ready, setReady] = useState(false);
   const small =
     typeof window !== "undefined" && window.innerWidth <= 700;
 
@@ -37,7 +35,7 @@ export default function LandingPage() {
             scroll={scroll}
             eventSource={wrapperRef}
             small={small}
-            onReady={() => setReady(true)}
+            onReady={() => {}}
           />
         </>
       )}

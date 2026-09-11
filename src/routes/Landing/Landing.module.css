@@ -53,83 +53,67 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 560px;
+  max-width: 760px;
   padding: 80px clamp(20px, 5vw, 56px);
   pointer-events: none;
 }
 
-@keyframes fadeSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.eyebrow {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(10px, 1.2vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #F4C50D;
+  margin-bottom: clamp(20px, 2.5vh, 28px);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* GSAP initial state set in JS */
 }
 
-.eyebrow {
-  font-family: "Inter", var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  animation-delay: 0.05s;
+.eyebrow span {
+  font-size: 8px;
+  display: inline-block;
 }
 
 .tagline {
-  font-family: "Space Grotesk", var(--font-head);
+  font-family: "Space Grotesk", sans-serif;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--text);
   margin-top: 24px;
   text-transform: uppercase;
-  animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  animation-delay: 0.25s;
-}
-
-.card h1,
-.card h2 {
-  margin: 0 0 0.4em;
-  color: var(--text);
-  font-family: "Space Grotesk", var(--font-head);
-  font-weight: 700;
-  line-height: 1.1;
-  word-wrap: break-word; /* Prevent harsh letter breaks if possible */
-}
-
-.card h1 {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  max-width: 800px;
-  animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
 }
 
 .card h2 {
-  font-size: clamp(2rem, 5.2vw, 3.4rem);
-  line-height: 1.05;
+  margin: 0 0 clamp(24px, 3vh, 30px);
+  color: #F1EFEA;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  font-size: clamp(56px, 6vw, 88px);
+  max-width: 650px;
+  white-space: pre-wrap;
+}
+
+/* Yellow accent class applied via JS or span */
+.card h2 .accentWord {
+  color: #F4C50D;
+  text-shadow: 0 0 25px rgba(244, 197, 13, 0.12);
 }
 
 .card p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.75);
-  font-family: "Inter", var(--font-body);
-  font-size: 18px;
-  line-height: 1.65;
-  max-width: 48ch;
-}
-
-.card h1 + p {
-  animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  animation-delay: 0.15s;
+  color: #A9A9A6 !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: clamp(18px, 1.8vw, 20px);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  max-width: 560px;
 }
 
 /* subtle vertical progress tick, right edge */
@@ -339,6 +323,25 @@
   .socialCard {
     flex: 1 1 calc(50% - 16px);
     width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card h2 {
+    font-size: clamp(48px, 8vw, 70px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card h2 {
+    font-size: clamp(42px, 12vw, 62px);
+    line-height: 0.94;
+  }
+  .card p {
+    font-size: clamp(16px, 4vw, 18px);
+  }
+  .eyebrow {
+    font-size: clamp(10px, 3vw, 11px);
   }
 }
 

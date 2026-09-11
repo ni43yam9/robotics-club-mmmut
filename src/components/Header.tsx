@@ -16,7 +16,7 @@ export default function Header() {
         onPointerEnter={prefetchPlay}
         onFocus={prefetchPlay}
       >
-        EXPLORE THE CLUB <span className={styles.arrow}>&rarr;</span>
+        CYBERPUNK <span className={styles.arrow}>&rarr;</span>
       </Link>
     </header>
   );

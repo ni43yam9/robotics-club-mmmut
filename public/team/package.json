@@ -1,0 +1,9 @@
+{
+  "name": "robotics-club-mmmut-team",
+  "version": "1.0.0",
+  "description": "Robotics Club, MMMUT — Team Showcase",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}

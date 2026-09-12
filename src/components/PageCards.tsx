@@ -27,8 +27,8 @@ export default function PageCards() {
             subtitle="Meet the builders"
             imageUrl="/team.jpg"
             actionText="Meet the Team &rarr;"
-            href="/team"
-            onActionClick={() => navigate("/team")}
+            href="/team/index.html"
+            onActionClick={() => window.location.href = "/team/index.html"}
           />
         </div>
 

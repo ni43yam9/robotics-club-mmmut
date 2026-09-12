@@ -10,7 +10,7 @@ export default function SideNav() {
       <nav className={`${styles.navStrip} ${isOpen ? styles.open : ''}`} aria-hidden={!isOpen}>
         <ul className={styles.navList}>
           <li style={{ '--i': 1 } as React.CSSProperties}>
-            <a href="/events" className={styles.navItem} onClick={() => setIsOpen(false)}>
+            <a href="/events/index.html" className={styles.navItem} onClick={() => setIsOpen(false)}>
               EVENTS
             </a>
           </li>

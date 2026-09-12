@@ -9,7 +9,7 @@ import styles from "./Landing.module.css";
 
 export default function LandingPage() {
   useDocumentMeta(
-    "Robotics Club — build real robots in your first year",
+    "Robotics Club",
     "Robotics Club at MMMUT — the build club for first-year engineers. Real hardware from week one.",
   );
 

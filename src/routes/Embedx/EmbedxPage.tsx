@@ -226,7 +226,7 @@ export default function EmbedxPage() {
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
-                    <strong className="text-white block mb-2 text-base">Phase 3 - Prototype Presentation & Judging (Day 3)</strong>
+                    <strong className="text-white block mb-2 text-base">Phase 3 - Prototype Presentation & Judging</strong>
                     <p>
                       Each team will demonstrate their working hardware prototype live, supported by a short PowerPoint presentation covering their problem statement, approach, circuit/system design, challenges faced, and results. A faculty judging panel will evaluate the teams on functionality, innovation, technical understanding, and quality of presentation. The event will conclude with results and a felicitation of the top-performing teams.
                     </p>
@@ -329,6 +329,8 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
+
 
 
 

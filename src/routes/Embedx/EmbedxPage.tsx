@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+﻿import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
@@ -118,7 +118,7 @@ export default function EmbedxPage() {
               <div className="mt-4 md:mt-6 flex flex-col items-center gap-4 w-full">
                 <div className="flex items-center justify-center gap-2 md:gap-4 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest md:tracking-[0.3em] text-blue-500 uppercase font-mono w-full">
                   <span className="w-6 sm:w-8 md:w-12 h-[1px] bg-gradient-to-r from-transparent to-blue-500"></span>
-                  <span className="text-center">INNOVATE Ã¢â‚¬Â¢ BUILD Ã¢â‚¬Â¢ DEPLOY</span>
+                  <span className="text-center">INNOVATE &bull; BUILD &bull; DEPLOY</span>
                   <span className="w-6 sm:w-8 md:w-12 h-[1px] bg-gradient-to-l from-transparent to-blue-500"></span>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function EmbedxPage() {
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
-                    <strong className="text-white block mb-2 text-base">Phase 1 Ã¢â‚¬â€ Hands-on Workshop on ESP32 / Arduino Uno</strong>
+                    <strong className="text-white block mb-2 text-base">Phase 1 - Hands-on Workshop on ESP32 / Arduino Uno</strong>
                     <p className="mb-3">A structured workshop will be conducted by club members covering:</p>
                     <ul className="list-disc pl-5 space-y-1.5 mb-3 text-neutral-400">
                       <li>Introduction to ESP32 / Arduino Uno architecture, pinout, and specifications.</li>
@@ -215,7 +215,7 @@ export default function EmbedxPage() {
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
-                    <strong className="text-white block mb-2 text-base">Phase 2 Ã¢â‚¬â€ Component Distribution & Problem Statement Release</strong>
+                    <strong className="text-white block mb-2 text-base">Phase 2 - Component Distribution & Problem Statement Release</strong>
                     <p>
                       Participating teams will be given a fixed kit of electronic components (microcontroller board, sensors, actuators, jumper wires, breadboard, and other basic parts) along with a problem statement relevant to real-world. Teams will use this phase to brainstorm their approach, plan their circuit, and identify what they need to learn before building.
                     </p>
@@ -226,7 +226,7 @@ export default function EmbedxPage() {
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
-                    <strong className="text-white block mb-2 text-base">Phase 3 Ã¢â‚¬â€ Prototype Presentation & Judging (Day 3)</strong>
+                    <strong className="text-white block mb-2 text-base">Phase 3 - Prototype Presentation & Judging (Day 3)</strong>
                     <p>
                       Each team will demonstrate their working hardware prototype live, supported by a short PowerPoint presentation covering their problem statement, approach, circuit/system design, challenges faced, and results. A faculty judging panel will evaluate the teams on functionality, innovation, technical understanding, and quality of presentation. The event will conclude with results and a felicitation of the top-performing teams.
                     </p>
@@ -329,6 +329,7 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
 
 
 

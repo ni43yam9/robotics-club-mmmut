@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
 import ShaderWaves from "../../components/ui/ShaderWaves";
 import { Timeline } from "../../components/ui/timeline";
+import SleekLineCursor from "../../components/SleekLineCursor";
 
 export default function EmbedxPage() {
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -61,6 +62,11 @@ export default function EmbedxPage() {
       
       {/* WebGL Animated Waves Background (Base) */}
       <ShaderWaves />
+      
+      {/* Global Glowing Cursor Line */}
+      <div className="fixed inset-0 pointer-events-none z-[10]">
+        <SleekLineCursor />
+      </div>
       
       {/* Blended Background Layer */}
       <div 

@@ -254,8 +254,8 @@ export default function EmbedxPage() {
                     },
                     {
                       id: "2",
-                      title: "Problem Release",
-                      timestamp: "Oct 16",
+                      title: "Problem Release and Kit Distribution",
+                      timestamp: "To be announced",
                       status: "active",
                     },
                     {

@@ -249,20 +249,20 @@ export default function EmbedxPage() {
                         id: "0",
                         title: "Last Date of Registration",
                         timestamp: "Sep 20",
-                        status: "completed",
+                        status: "active",
                       },
                       {
                         id: "1",
                         title: "Hands-on Workshop",
                         timestamp: "Sep 26-27",
                         description: "Venue to be announced",
-                        status: "completed",
+                        status: "pending",
                       },
                       {
                         id: "2",
                         title: "Problem Release and Kit Distribution",
                         timestamp: "To be announced",
-                        status: "active",
+                        status: "pending",
                       },
                       {
                         id: "3",

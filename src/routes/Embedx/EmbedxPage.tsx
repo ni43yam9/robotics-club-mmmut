@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
@@ -296,19 +296,47 @@ export default function EmbedxPage() {
               <div className="space-y-4">
                 <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>Team size must not be more than 3 members.</div>
+                  <div>Team size: individual or team of 2-3. Each member of the team should be from the same academic year.</div>
                 </div>
                 <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>Use of pre-built models/modules is strictly not allowed.</div>
+                  <div>One submission per team. Multiple submissions are NOT allowed.</div>
                 </div>
                 <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>All hardware prototypes must be built within the given timeline of the hackathon.</div>
+                  <div>Components other than what we provided are strictly prohibited.</div>
                 </div>
                 <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>Use of any other types of components which are not mentioned in the official list will lead to disqualification.</div>
+                  <div>Use of Printed Circuit Boards (Custom build or Universal) are not allowed.</div>
+                </div>
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>Open to all years and branches and the winner will be chosen from 1st year participants.</div>
+                </div>
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>Any language/IDE/framework is allowed.</div>
+                </div>
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>Pre-written code must be disclosed and clearly marked as "brought in" vs "written during hackathon." Reused boilerplate (WiFi setup, motor driver libraries) is fine; a pre-built solution to the actual problem statement is not.</div>
+                </div>
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>Use of AI is allowed with disclosure at the time of or before final submission.</div>
+                </div>
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>If you need, you have to use your own personal internet, Robotics club is not liable to provide such service/s.</div>
+                </div>
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>Violation of any above mentioned rules could lead to instant disqualification.</div>
+                </div>
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>Judges can disqualify any team if they see fit.</div>
                 </div>
               </div>
             </div>

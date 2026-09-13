@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
@@ -355,7 +355,7 @@ export default function EmbedxPage() {
                   Download List
                 </a>
               </div>
-              <div className="bg-blue-900/10 border border-blue-500/20 rounded-lg overflow-hidden mb-8">
+              <div className="bg-blue-900/10 border border-blue-500/20 rounded-lg overflow-hidden mb-4">
                 <table className="w-full text-left text-sm font-['Space_Grotesk'] text-white">
                   <thead className="bg-blue-900/30 border-b border-blue-500/20">
                     <tr>
@@ -386,6 +386,17 @@ export default function EmbedxPage() {
                     <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">LDR Sensor</td><td className="px-4 py-2.5 text-center">1</td></tr>
                   </tbody>
                 </table>
+              </div>
+              
+              <div className="flex justify-between items-center bg-blue-500/10 border border-blue-500/30 p-5 rounded-lg mb-8 shadow-[0_0_15px_rgba(59,130,246,0.15)] relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-400/10 to-blue-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                <span className="text-white font-bold font-['Space_Grotesk'] tracking-wide text-lg flex items-center gap-3">
+                  <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                  Total Kit Price
+                </span>
+                <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">
+                  &#8377;1,414
+                </span>
               </div>
             </div>
 

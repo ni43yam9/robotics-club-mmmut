@@ -260,8 +260,8 @@ export default function EmbedxPage() {
                     },
                     {
                       id: "3",
-                      title: "Hackathon Day",
-                      timestamp: "Oct 20-21",
+                      title: "Presentation Day",
+                      timestamp: "To be announced",
                       status: "pending",
                     },
                   ]} 

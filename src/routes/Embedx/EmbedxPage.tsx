@@ -207,13 +207,13 @@ export default function EmbedxPage() {
                 <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
-                    <strong className="text-white block mb-2 text-base">Phase 1 - Hands-on Workshop on ESP32 / Arduino Uno</strong>
+                    <strong className="text-white block mb-2 text-base">Phase 1 - Hands-on Workshop on ESP 8266 / Arduino Uno</strong>
                     <p className="mb-3">A structured workshop will be conducted by club members covering:</p>
                     <ul className="list-disc pl-5 space-y-1.5 mb-3 text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
-                      <li>Introduction to ESP32 / Arduino Uno architecture, pinout, and specifications.</li>
+                      <li>Introduction to ESP 8266 / Arduino Uno architecture, pinout, and specifications.</li>
                       <li>Setting up the Arduino IDE and uploading a first program.</li>
                       <li>Interfacing common sensors and actuators (digital I/O, analog input, PWM, serial communication).</li>
-                      <li>Basic Wi-Fi/Bluetooth functionality on ESP32 (where applicable to the problem statements).</li>
+                      <li>Basic Wi-Fi/Bluetooth functionality on ESP 8266 (where applicable to the problem statements).</li>
                       <li>Debugging techniques and best practices for wiring and code.</li>
                     </ul>
                     <p>This session ensures participants have the exact technical knowledge needed to build their assigned problem statement, rather than a generic tutorial disconnected from their task.</p>

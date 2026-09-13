@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
@@ -280,19 +280,19 @@ export default function EmbedxPage() {
               <div className="space-y-4">
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>Team size must be strictly between 2 to 4 members.</div>
+                  <div>Team size must not be more than 3 members.</div>
                 </div>
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>All hardware prototypes must be built during the hackathon.</div>
+                  <div>Use of pre-built models/modules is strictly not allowed.</div>
                 </div>
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>Use of pre-built modules is allowed if properly disclosed.</div>
+                  <div>All hardware prototypes must be built within the given timeline of the hackathon.</div>
                 </div>
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div>Plagiarism or using previous projects leads to disqualification.</div>
+                  <div>Use of any other types of components which are not mentioned in the official list will lead to disqualification.</div>
                 </div>
               </div>
             </div>

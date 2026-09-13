@@ -247,8 +247,9 @@ export default function EmbedxPage() {
                   items={[
                     {
                       id: "1",
-                      title: "Registration Closes",
-                      timestamp: "Oct 15",
+                      title: "Hands-on Workshop",
+                      timestamp: "Sep 26-27",
+                      description: "Venue to be announced",
                       status: "completed",
                     },
                     {

@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
+import HowItWorks from "../../components/ui/how-it-works";
 import ShaderWaves from "../../components/ui/ShaderWaves";
 
 export default function EmbedxPage() {
@@ -241,28 +242,26 @@ export default function EmbedxPage() {
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 Timeline
               </h2>
-              <div className="space-y-6 max-w-lg">
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
-                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div className="w-full flex justify-between border-b border-white/5 pb-2">
-                    <span className="text-white">Registration Closes</span>
-                    <span className="text-blue-400 font-mono">Oct 15</span>
-                  </div>
-                </div>
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
-                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div className="w-full flex justify-between border-b border-white/5 pb-2">
-                    <span className="text-white">Problem Release</span>
-                    <span className="text-blue-400 font-mono">Oct 16</span>
-                  </div>
-                </div>
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
-                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                  <div className="w-full flex justify-between pb-2">
-                    <span className="text-white">Hackathon Day</span>
-                    <span className="text-blue-400 font-mono">Oct 20-21</span>
-                  </div>
-                </div>
+              <div className="w-full -ml-4 md:-ml-8">
+                <HowItWorks 
+                  features={[
+                    {
+                      title: "Registration Closes",
+                      description: "Oct 15 — Final day to form your team and sign up.",
+                      colorTheme: "blue"
+                    },
+                    {
+                      title: "Problem Release",
+                      description: "Oct 16 — The official problem statements and hardware kits are revealed.",
+                      colorTheme: "blue"
+                    },
+                    {
+                      title: "Hackathon Day",
+                      description: "Oct 20-21 — The intense 24-hour build and final presentations.",
+                      colorTheme: "blue"
+                    }
+                  ]}
+                />
               </div>
             </div>
 
@@ -324,6 +323,7 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
 
 
 

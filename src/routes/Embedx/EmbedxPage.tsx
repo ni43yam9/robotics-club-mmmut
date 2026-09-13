@@ -186,7 +186,7 @@ export default function EmbedxPage() {
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 About
               </h2>
-              <div className="text-neutral-300 space-y-4 text-sm leading-relaxed flex gap-3">
+              <div className="space-y-4 text-sm leading-relaxed flex gap-3 text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                 <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                 <div className="space-y-4">
                   <p>
@@ -205,12 +205,12 @@ export default function EmbedxPage() {
               <div className="space-y-8">
                 
                 {/* Phase 1 */}
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
                     <strong className="text-white block mb-2 text-base">Phase 1 - Hands-on Workshop on ESP32 / Arduino Uno</strong>
                     <p className="mb-3">A structured workshop will be conducted by club members covering:</p>
-                    <ul className="list-disc pl-5 space-y-1.5 mb-3 text-neutral-400">
+                    <ul className="list-disc pl-5 space-y-1.5 mb-3 text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                       <li>Introduction to ESP32 / Arduino Uno architecture, pinout, and specifications.</li>
                       <li>Setting up the Arduino IDE and uploading a first program.</li>
                       <li>Interfacing common sensors and actuators (digital I/O, analog input, PWM, serial communication).</li>
@@ -222,7 +222,7 @@ export default function EmbedxPage() {
                 </div>
 
                 {/* Phase 2 */}
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
                     <strong className="text-white block mb-2 text-base">Phase 2 - Component Distribution & Problem Statement Release</strong>
@@ -233,7 +233,7 @@ export default function EmbedxPage() {
                 </div>
 
                 {/* Phase 3 */}
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
                     <strong className="text-white block mb-2 text-base">Phase 3 - Prototype Presentation & Judging</strong>
@@ -294,19 +294,19 @@ export default function EmbedxPage() {
                 Rules
               </h2>
               <div className="space-y-4">
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>Team size must not be more than 3 members.</div>
                 </div>
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>Use of pre-built models/modules is strictly not allowed.</div>
                 </div>
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>All hardware prototypes must be built within the given timeline of the hackathon.</div>
                 </div>
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>Use of any other types of components which are not mentioned in the official list will lead to disqualification.</div>
                 </div>
@@ -320,14 +320,14 @@ export default function EmbedxPage() {
                 Contact
               </h2>
               <div className="space-y-6">
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
                     <strong className="text-white block mb-1">Event Coordinator</strong>
                     <a href="tel:+919876543210" className="hover:text-blue-400 font-mono">+91 98765 43210</a>
                   </div>
                 </div>
-                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
                     <strong className="text-white block mb-1">Technical Support</strong>
@@ -345,6 +345,8 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
+
 
 
 

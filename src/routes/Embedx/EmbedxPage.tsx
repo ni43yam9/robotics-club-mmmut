@@ -354,7 +354,7 @@ export default function EmbedxPage() {
                     <strong className="text-white block mb-2 text-base">Event Coordinator</strong>
                     <div className="mb-1">Apurv Mishra</div>
                     <div className="text-neutral-400 text-xs mb-2">IoT 3rd Year</div>
-                    <a href="tel:+919876543210" className="hover:text-blue-400 font-mono block">+91 XXXXX XXXXX</a>
+                    <a href="tel:+919876543210" className="hover:text-blue-400 font-mono block">+91 7068585328</a>
                   </div>
                 </div>
 
@@ -364,7 +364,7 @@ export default function EmbedxPage() {
                     <strong className="text-white block mb-2 text-base">Event Coordinator</strong>
                     <div className="mb-1">Dhruv Mishra</div>
                     <div className="text-neutral-400 text-xs mb-2">IoT 3rd Year</div>
-                    <a href="tel:+919876543210" className="hover:text-blue-400 font-mono block">+91 XXXXX XXXXX</a>
+                    <a href="tel:+919876543210" className="hover:text-blue-400 font-mono block">+91 6394655386</a>
                   </div>
                 </div>
               </div>

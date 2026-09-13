@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+﻿import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
 import ShaderWaves from "../../components/ui/ShaderWaves";
 import { Timeline } from "../../components/ui/timeline";
 import SleekLineCursor from "../../components/SleekLineCursor";
+import Embedx3DModel from "../../components/ui/Embedx3DModel";
 
 export default function EmbedxPage() {
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -128,7 +129,7 @@ export default function EmbedxPage() {
                   <span className="w-6 sm:w-8 md:w-12 h-[1px] bg-gradient-to-l from-transparent to-blue-500"></span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm md:text-base font-bold shadow-[0_0_15px_rgba(59,130,246,0.15)] mt-2">
-                  <span className="text-xl">🏆</span> Prize Pool: ₹10,000 + Exclusive Goodies
+                  <span className="text-xl">ðŸ†</span> Prize Pool: â‚¹10,000 + Exclusive Goodies
                 </div>
               </div>
 
@@ -185,12 +186,19 @@ export default function EmbedxPage() {
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 About
               </h2>
-              <div className="text-neutral-300 space-y-4 text-sm leading-relaxed flex gap-3">
-                <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                <div className="space-y-4">
-                  <p>
-                    The Robotics Club proposes to organize a three-phase, hands-on embedded systems event designed to take participants from a blank problem statement to a working hardware prototype. Unlike a typical one-day hackathon, this event is structured so that participants first receive real components and a challenge, are then trained on the exact hardware they are expected to use, and finally present their completed builds to the faculty panel. This approach ensures that even participants with limited prior exposure to microcontrollers can meaningfully complete, learn practical skills, and produce a working demonstration by the end of the event.
-                  </p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div className="text-neutral-300 space-y-4 text-sm leading-relaxed flex gap-3">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div className="space-y-4">
+                    <p>
+                      The Robotics Club proposes to organize a three-phase, hands-on embedded systems event designed to take participants from a blank problem statement to a working hardware prototype. Unlike a typical one-day hackathon, this event is structured so that participants first receive real components and a challenge, are then trained on the exact hardware they are expected to use, and finally present their completed builds to the faculty panel. This approach ensures that even participants with limited prior exposure to microcontrollers can meaningfully complete, learn practical skills, and produce a working demonstration by the end of the event.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* 3D Model Display */}
+                <div className="w-full relative group">
+                  <Embedx3DModel url="/robo_dog_low_poly.glb" />
                 </div>
               </div>
             </div>
@@ -344,6 +352,7 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
 
 
 

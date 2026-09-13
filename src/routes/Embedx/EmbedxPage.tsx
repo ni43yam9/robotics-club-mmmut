@@ -243,31 +243,37 @@ export default function EmbedxPage() {
                 Timeline
               </h2>
               <div className="max-w-lg mt-4">
-                <Timeline 
-                  items={[
-                    {
-                      id: "1",
-                      title: "Hands-on Workshop",
-                      timestamp: "Sep 26-27",
-                      description: "Venue to be announced",
-                      status: "completed",
-                    },
-                    {
-                      id: "2",
-                      title: "Problem Release and Kit Distribution",
-                      timestamp: "To be announced",
-                      status: "active",
-                    },
-                    {
-                      id: "3",
-                      title: "Presentation Day",
-                      timestamp: "To be announced",
-                      status: "pending",
-                    },
-                  ]} 
-                  timestampPosition="inline"
-                  variant="spacious"
-                />
+                  <Timeline 
+                    items={[
+                      {
+                        id: "0",
+                        title: "Last Date of Registration",
+                        timestamp: "Sep 20",
+                        status: "completed",
+                      },
+                      {
+                        id: "1",
+                        title: "Hands-on Workshop",
+                        timestamp: "Sep 26-27",
+                        description: "Venue to be announced",
+                        status: "completed",
+                      },
+                      {
+                        id: "2",
+                        title: "Problem Release and Kit Distribution",
+                        timestamp: "To be announced",
+                        status: "active",
+                      },
+                      {
+                        id: "3",
+                        title: "Presentation Day",
+                        timestamp: "To be announced",
+                        status: "pending",
+                      },
+                    ]} 
+                    timestampPosition="inline"
+                    variant="spacious"
+                  />
               </div>
             </div>
 

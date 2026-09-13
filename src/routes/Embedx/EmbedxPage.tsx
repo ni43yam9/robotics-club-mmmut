@@ -191,21 +191,47 @@ export default function EmbedxPage() {
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 Structure
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-8">
+                
+                {/* Phase 1 */}
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
-                    <strong className="text-white block mb-1">Round 1: Idea Pitch</strong>
-                    Submit your initial hardware approach and circuit architecture. Only the most viable and innovative solutions will be shortlisted.
+                    <strong className="text-white block mb-2 text-base">Phase 1 — Hands-on Workshop on ESP32 / Arduino Uno</strong>
+                    <p className="mb-3">A structured workshop will be conducted by club members covering:</p>
+                    <ul className="list-disc pl-5 space-y-1.5 mb-3 text-neutral-400">
+                      <li>Introduction to ESP32 / Arduino Uno architecture, pinout, and specifications.</li>
+                      <li>Setting up the Arduino IDE and uploading a first program.</li>
+                      <li>Interfacing common sensors and actuators (digital I/O, analog input, PWM, serial communication).</li>
+                      <li>Basic Wi-Fi/Bluetooth functionality on ESP32 (where applicable to the problem statements).</li>
+                      <li>Debugging techniques and best practices for wiring and code.</li>
+                    </ul>
+                    <p>This session ensures participants have the exact technical knowledge needed to build their assigned problem statement, rather than a generic tutorial disconnected from their task.</p>
                   </div>
                 </div>
+
+                {/* Phase 2 */}
                 <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                   <div>
-                    <strong className="text-white block mb-1">Round 2: Prototyping Phase</strong>
-                    A 24-hour intense build session. Teams will assemble components, wire circuits, and code microcontrollers on site.
+                    <strong className="text-white block mb-2 text-base">Phase 2 — Component Distribution & Problem Statement Release</strong>
+                    <p>
+                      Participating teams will be given a fixed kit of electronic components (microcontroller board, sensors, actuators, jumper wires, breadboard, and other basic parts) along with a problem statement relevant to real-world. Teams will use this phase to brainstorm their approach, plan their circuit, and identify what they need to learn before building.
+                    </p>
                   </div>
                 </div>
+
+                {/* Phase 3 */}
+                <div className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>
+                    <strong className="text-white block mb-2 text-base">Phase 3 — Prototype Presentation & Judging (Day 3)</strong>
+                    <p>
+                      Each team will demonstrate their working hardware prototype live, supported by a short PowerPoint presentation covering their problem statement, approach, circuit/system design, challenges faced, and results. A faculty judging panel will evaluate the teams on functionality, innovation, technical understanding, and quality of presentation. The event will conclude with results and a felicitation of the top-performing teams.
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
 

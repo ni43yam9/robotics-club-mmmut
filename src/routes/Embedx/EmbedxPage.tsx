@@ -116,13 +116,13 @@ export default function EmbedxPage() {
               </h1>
               
               <div className="mt-4 md:mt-6 flex flex-col items-center gap-4 w-full">
-                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm md:text-base font-bold shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                  <span className="text-xl">🏆</span> Prize Pool: ₹10,000 + Exclusive Goodies
-                </div>
                 <div className="flex items-center justify-center gap-2 md:gap-4 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest md:tracking-[0.3em] text-blue-500 uppercase font-mono w-full">
                   <span className="w-6 sm:w-8 md:w-12 h-[1px] bg-gradient-to-r from-transparent to-blue-500"></span>
                   <span className="text-center">INNOVATE &bull; BUILD &bull; DEPLOY</span>
                   <span className="w-6 sm:w-8 md:w-12 h-[1px] bg-gradient-to-l from-transparent to-blue-500"></span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm md:text-base font-bold shadow-[0_0_15px_rgba(59,130,246,0.15)] mt-2">
+                  <span className="text-xl">🏆</span> Prize Pool: ₹10,000 + Exclusive Goodies
                 </div>
               </div>
 

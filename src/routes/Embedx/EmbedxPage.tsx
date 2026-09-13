@@ -179,7 +179,7 @@ export default function EmbedxPage() {
                 <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
                 <div className="space-y-4">
                   <p>
-                    EmbedX is a national hardware and embedded systems competition that equips participants to approach physical engineering problems with rigor. The competition moves from an architectural idea contest in Round 1 to a modular systems challenge in the Grand Finale, where teams combine independent components into fully working prototypes.
+                    The Robotics Club proposes to organize a three-phase, hands-on embedded systems event designed to take participants from a blank problem statement to a working hardware prototype. Unlike a typical one-day hackathon, this event is structured so that participants first receive real components and a challenge, are then trained on the exact hardware they are expected to use, and finally present their completed builds to the faculty panel. This approach ensures that even participants with limited prior exposure to microcontrollers can meaningfully complete, learn practical skills, and produce a working demonstration by the end of the event.
                   </p>
                 </div>
               </div>

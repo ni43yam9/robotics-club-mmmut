@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+﻿import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
@@ -182,7 +182,7 @@ export default function EmbedxPage() {
             
             {/* ABOUT */}
             <div id="section-About">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] font-['Space_Grotesk'] uppercase tracking-widest mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 About
               </h2>
@@ -198,7 +198,7 @@ export default function EmbedxPage() {
 
             {/* STRUCTURE */}
             <div id="section-Structure">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] font-['Space_Grotesk'] uppercase tracking-widest mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 Structure
               </h2>
@@ -248,7 +248,7 @@ export default function EmbedxPage() {
 
             {/* TIMELINE */}
             <div id="section-Timeline">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] font-['Space_Grotesk'] uppercase tracking-widest mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 Timeline
               </h2>
@@ -289,7 +289,7 @@ export default function EmbedxPage() {
 
             {/* RULES */}
             <div id="section-Rules">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] font-['Space_Grotesk'] uppercase tracking-widest mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 Rules
               </h2>
@@ -343,7 +343,7 @@ export default function EmbedxPage() {
 
             {/* CONTACT */}
             <div id="section-Contact">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] font-['Space_Grotesk'] uppercase tracking-widest mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 Contact
               </h2>
@@ -373,6 +373,7 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
 
 
 

@@ -26,7 +26,7 @@ export function EncryptedText({
 
     const startScrambling = () => {
       interval = setInterval(() => {
-        setDisplayText((prev) => {
+        setDisplayText(() => {
           return text
             .split("")
             .map((char, index) => {

@@ -1,8 +1,7 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
-import SleekLineCursor from "../../components/SleekLineCursor";
 import ShaderWaves from "../../components/ui/ShaderWaves";
 
 export default function EmbedxPage() {
@@ -299,5 +298,6 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
 
 

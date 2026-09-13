@@ -10,7 +10,7 @@ export default function EmbedxPage() {
   const bannerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState('About');
-  const tabs = ['About', 'Structure', 'Timeline', 'Rules', 'Kit', 'Contact'];
+  const tabs = ['About', 'Structure', 'Timeline', 'Rules', 'Components', 'Contact'];
 
   const handleContainerScroll = () => {
     if (!containerRef.current) return;
@@ -340,11 +340,11 @@ export default function EmbedxPage() {
               </div>
             </div>
             {/* KIT */}
-            <div id="section-Kit">
+            <div id="section-Components">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                 <h2 className="text-2xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] font-['Space_Grotesk'] uppercase tracking-widest flex items-center gap-3">
                   <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
-                  Provided Kit
+                  Components Used
                 </h2>
                 <a 
                   href="/embedx-kit-list.png" 
@@ -426,6 +426,7 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
 
 
 

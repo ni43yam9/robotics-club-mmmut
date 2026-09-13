@@ -347,3 +347,9 @@
   }
 }
 
+
+@media (max-width: 560px) {
+  .socialCard {
+    flex: 1 1 100%;
+  }
+}

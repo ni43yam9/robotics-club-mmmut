@@ -77,7 +77,7 @@ export default function HeroTypography() {
 
         {/* Tagline */}
         <div className={`${styles.tagline} hero-anim`}>
-          <span className={styles.taglineLine}>────</span> WHERE IDEAS BECOME MACHINES.
+          <span className={styles.taglineLine}>—</span> WHERE IDEAS BECOME MACHINES.
         </div>
 
         {/* Subtle Micro-Text */}

@@ -14,6 +14,7 @@ export interface InteractiveTravelCardProps {
   onActionClick: () => void;
   className?: string;
   topLabel?: string;
+  imageClassName?: string;
 }
 
 export const InteractiveTravelCard = React.forwardRef<
@@ -21,7 +22,7 @@ export const InteractiveTravelCard = React.forwardRef<
   InteractiveTravelCardProps
 >(
   (
-    { title, subtitle, imageUrl, actionText, href, onActionClick, className, topLabel },
+    { title, subtitle, imageUrl, actionText, href, onActionClick, className, topLabel, imageClassName },
     ref
   ) => {
     // --- 3D Tilt Animation Logic ---
@@ -86,7 +87,7 @@ export const InteractiveTravelCard = React.forwardRef<
               hover: { scale: 1.05 }
             }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="absolute inset-0 h-full w-full object-cover"
+            className={cn("absolute inset-0 h-full w-full object-cover", imageClassName)}
           />
           
           {/* Darkening overlay for better text contrast over the image */}

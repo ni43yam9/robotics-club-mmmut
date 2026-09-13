@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="box" style="width:10px;height:10px;background:red;"></div>
+  <script type="module">
+    import { createTimeline } from 'https://cdn.jsdelivr.net/npm/animejs@4.0.0-beta.99/dist/anime.es.js';
+    
+    try {
+      const tl = createTimeline();
+      tl.add('#box', { translateX: 100, duration: 1000 });
+      console.log('Added to timeline. playing?', tl.isPlaying);
+      tl.play(); // maybe it needs play?
+    } catch (e) {
+      console.error(e.message);
+    }
+  </script>
+</body>
+</html>

@@ -6,6 +6,7 @@ import {
 } from "react";
 import CallToAction from "./CallToAction";
 import PageCards from "../../components/PageCards";
+import EmbedxCard from "../../components/EmbedxCard";
 import HeroTypography from "./HeroTypography";
 import SectionCard from "./SectionCard";
 import styles from "./Landing.module.css";
@@ -122,6 +123,9 @@ export default function StoryOverlay({ scroll, isStatic = false }: Props) {
       )}
 
       <div ref={storyRef}>
+        <div className="absolute top-[90px] md:top-[80px] left-0 w-full flex justify-center z-50 pointer-events-none px-4 md:px-6">
+          <EmbedxCard />
+        </div>
         {STOPS.map((stop, i) => (
           <section
             key={stop.object}

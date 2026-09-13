@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { prefetchPlay } from "../../components/prefetch";
 import Footer from "../../components/Footer";
 import styles from "./Landing.module.css";
+import { LinkPreview } from "../../components/ui/LinkPreview";
 
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" width="32" height="32">
@@ -90,22 +91,32 @@ export default function CallToAction() {
 
           {/* Right Side: Social Cards */}
           <div className={styles.cardsGrid}>
-            {SOCIALS.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialCard}
-              >
-                <div className={styles.iconWrapper}>{social.icon}</div>
-                <div className={styles.textWrapper}>
-                  <span className={styles.cardTitle}>{social.name}</span>
-                  <span className={styles.cardHandle}>{social.handle}</span>
-                </div>
-                <span className={styles.arrow} aria-hidden="true">↗</span>
-              </a>
-            ))}
+            {SOCIALS.map((social) => {
+              const isEmail = social.name === "EMAIL";
+              const cardContent = (
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialCard}
+                >
+                  <div className={styles.iconWrapper}>{social.icon}</div>
+                  <div className={styles.textWrapper}>
+                    <span className={styles.cardTitle}>{social.name}</span>
+                    <span className={styles.cardHandle}>{social.handle}</span>
+                  </div>
+                  <span className={styles.arrow} aria-hidden="true">&rarr;</span>
+                </a>
+              );
+
+              return isEmail ? (
+                <div key={social.name}>{cardContent}</div>
+              ) : (
+                <LinkPreview key={social.name} url={social.url}>
+                  {cardContent}
+                </LinkPreview>
+              );
+            })}
           </div>
 
         </div>

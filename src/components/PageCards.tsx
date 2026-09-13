@@ -53,6 +53,18 @@ export default function PageCards() {
             onActionClick={() => window.location.href = "/events/index.html"}
           />
         </div>
+
+        <div style={{ perspective: "1000px" }}>
+          <InteractiveTravelCard
+            title="EMBEDX"
+            subtitle="Hardware Hackathon"
+            imageUrl="/embedx-chip-bg.jpg"
+            imageClassName="object-center"
+            actionText="Explore Embedx &rarr;"
+            href="/embedx"
+            onActionClick={() => navigate("/embedx")}
+          />
+        </div>
       </div>
     </div>
   );

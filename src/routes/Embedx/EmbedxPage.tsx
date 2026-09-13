@@ -347,24 +347,27 @@ export default function EmbedxPage() {
                 <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
                 Contact
               </h2>
-                <div className="space-y-6">
-                  <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
-                    <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                    <div>
-                      <strong className="text-white block mb-1">Event Coordinator</strong>
-                      <div className="text-neutral-200 mb-0.5">Mohammad Samir</div>
-                      <div className="text-neutral-400 text-xs mb-2">IoT 3rd Year</div>
-                      <a href="tel:+919876543210" className="hover:text-blue-400 font-mono">+91 98765 43210</a>
-                    </div>
-                  </div>
-                  <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
-                    <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
-                    <div>
-                      <strong className="text-white block mb-1">General Inquiries</strong>
-                      <a href="mailto:roboticsclub@mmmut.ac.in" className="hover:text-blue-400">roboticsclub@mmmut.ac.in</a>
-                    </div>
+              <div className="space-y-6">
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>
+                    <strong className="text-white block mb-2 text-base">Event Coordinator</strong>
+                    <div className="mb-1">Apurv Mishra</div>
+                    <div className="text-neutral-400 text-xs mb-2">IoT 3rd Year</div>
+                    <a href="tel:+919876543210" className="hover:text-blue-400 font-mono block">+91 XXXXX XXXXX</a>
                   </div>
                 </div>
+
+                <div className="flex gap-3 text-sm leading-relaxed text-white font-['Space_Grotesk'] tracking-wide [text-shadow:0_0_10px_rgba(255,255,255,0.7)]">
+                  <span className="text-blue-500 font-bold mt-0.5">{'>'}</span>
+                  <div>
+                    <strong className="text-white block mb-2 text-base">Event Coordinator</strong>
+                    <div className="mb-1">Dhruv Mishra</div>
+                    <div className="text-neutral-400 text-xs mb-2">IoT 3rd Year</div>
+                    <a href="tel:+919876543210" className="hover:text-blue-400 font-mono block">+91 XXXXX XXXXX</a>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* SPACER for smooth scroll of the last item */}

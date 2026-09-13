@@ -1,11 +1,10 @@
-import { useRef, useState } from "react";
+﻿import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "../../components/ui/EncryptedText";
 import ShaderWaves from "../../components/ui/ShaderWaves";
 import { Timeline } from "../../components/ui/timeline";
 import SleekLineCursor from "../../components/SleekLineCursor";
-import Embedx3DModel from "../../components/ui/Embedx3DModel";
 
 export default function EmbedxPage() {
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -378,6 +377,7 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
 
 
 

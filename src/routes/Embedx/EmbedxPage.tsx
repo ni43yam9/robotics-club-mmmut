@@ -10,7 +10,7 @@ export default function EmbedxPage() {
   const bannerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState('About');
-  const tabs = ['About', 'Structure', 'Timeline', 'Rules', 'Contact'];
+  const tabs = ['About', 'Structure', 'Timeline', 'Rules', 'Kit', 'Contact'];
 
   const handleContainerScroll = () => {
     if (!containerRef.current) return;
@@ -339,6 +339,55 @@ export default function EmbedxPage() {
                 </div>
               </div>
             </div>
+            {/* KIT */}
+            <div id="section-Kit">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                <h2 className="text-2xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] font-['Space_Grotesk'] uppercase tracking-widest flex items-center gap-3">
+                  <span className="w-1.5 h-6 bg-blue-500 rounded-sm"></span>
+                  Provided Kit
+                </h2>
+                <a 
+                  href="/embedx-kit-list.png" 
+                  download="EmbedX_Kit_Components.png"
+                  className="px-4 py-2 bg-blue-500/10 border border-blue-500/50 rounded text-blue-400 font-['Space_Grotesk'] hover:bg-blue-500/20 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 text-sm flex items-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  Download List
+                </a>
+              </div>
+              <div className="bg-blue-900/10 border border-blue-500/20 rounded-lg overflow-hidden mb-8">
+                <table className="w-full text-left text-sm font-['Space_Grotesk'] text-white">
+                  <thead className="bg-blue-900/30 border-b border-blue-500/20">
+                    <tr>
+                      <th className="px-4 py-3 font-bold text-blue-400 tracking-wide">COMPONENT</th>
+                      <th className="px-4 py-3 font-bold text-blue-400 tracking-wide text-center w-32">QUANTITY</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-blue-500/10">
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">ESP 8266</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">USB CABLE for ESP 8266</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">JUMPER WIRES</td><td className="px-4 py-2.5 text-center">3</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">SG90 SERVO MOTOR</td><td className="px-4 py-2.5 text-center">2</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">IR SENSOR MODULE</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">PIR Sensor (HC-SR501)</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">IC 555 / NE555</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Small Breadboard</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">MPU6050 Module</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Humidity Sensor (DHT11)</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">TTP224 Touch Sensor</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Relay Module</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">MQ-2 Gas Sensor</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">NRF24L01 Module</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Transistors (BC547, BC557)</td><td className="px-4 py-2.5 text-center">5</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Resistors (10 kΩ) + Capacitors</td><td className="px-4 py-2.5 text-center">5+5</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Current</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Voltage</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">Buzzer</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                    <tr className="hover:bg-blue-500/5 transition-colors"><td className="px-4 py-2.5">LDR Sensor</td><td className="px-4 py-2.5 text-center">1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
             {/* CONTACT */}
             <div id="section-Contact">
@@ -377,6 +426,8 @@ export default function EmbedxPage() {
     </div>
   );
 }
+
+
 
 
 
